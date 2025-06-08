@@ -30,8 +30,13 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# local env files
+.env.local
+.env*.local
+
+# Images (if you don't want to commit them)
+public/images/*
+!public/images/.gitkeep
 
 # vercel
 .vercel
