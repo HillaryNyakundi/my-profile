@@ -34,3 +34,8 @@ export interface Skill {
   icon: IconType;
   color: string;
 }
+
+export interface SkillCategory {
+  title: string;
+  skills: Skill[];
+}

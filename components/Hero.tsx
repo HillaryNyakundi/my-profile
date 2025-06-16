@@ -2,14 +2,15 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import TypewriterText from '@/components/ui/TypewriterText';
-import { ChevronDown } from 'lucide-react';
+//import { ChevronDown } from 'lucide-react';
+import { FlipWords } from './common/FlipWords';
+import TalkButton from './ui/TalkButton';
 
 export default function Hero() {
-  const scrollToProjects = () => {
-    const element = document.getElementById('projects');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
+  // const scrollToProjects = () => {
+  //   const element = document.getElementById('projects');
+  //   element?.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   return (
     <section
@@ -45,9 +46,15 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
             className="text-center md:text-left max-w-2xl"
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Meet! <TypewriterText text="Hillary Nyakundi" className="text-blue-500" />
-            </h1>
+            <div className="inline-flex">
+              <p className="text-2xl/normal md:text-4xl/normal lg:text-5xl/normal font-bold mb-4">
+                Meet!
+              </p>
+              <FlipWords
+                words={['Hillary Nyakundi.', '@hillarynyakundi.']}
+                className="text-2xl/normal md:text-4xl/normal lg:text-5xl/normal font-bold text-blue-500"
+              />
+            </div>
             <p className="text-xl md:text-2xl text-gray-300 mb-6">
               A <span className="text-blue-500 font-semibold">Software Engineer</span>{' '}
               based in Nairobi, Kenya.
@@ -56,25 +63,26 @@ export default function Hero() {
               Working towards creating software that makes life easier and more
               meaningful.
             </p>
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToProjects}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
             >
               View Projects
-            </motion.button>
+            </motion.button> */}
+            <TalkButton />
           </motion.div>
         </div>
       </div>
 
-      <motion.div
+      {/* <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <ChevronDown size={32} className="text-gray-500" />
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }
