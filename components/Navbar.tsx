@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, User, Briefcase, Code, BookOpen, Mail, Sparkles } from 'lucide-react';
+import { Home, User, Briefcase, Code, Mail, Sparkles } from 'lucide-react';
 
 const navItems = [
   { id: 'hero', icon: Home, label: 'Home' },
@@ -10,7 +10,7 @@ const navItems = [
   { id: 'skills', icon: Sparkles, label: 'Skills' },
   { id: 'experience', icon: Briefcase, label: 'Experience' },
   { id: 'projects', icon: Code, label: 'Projects' },
-  { id: 'blog', icon: BookOpen, label: 'Blog' },
+  //{ id: 'blog', icon: BookOpen, label: 'Blog' },
   { id: 'contact', icon: Mail, label: 'Contact' },
 ];
 
