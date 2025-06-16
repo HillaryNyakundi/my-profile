@@ -34,10 +34,6 @@ yarn-error.log*
 .env.local
 .env*.local
 
-# Images (if you don't want to commit them)
-public/images/*
-!public/images/.gitkeep
-
 # vercel
 .vercel
 
