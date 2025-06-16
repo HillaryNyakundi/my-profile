@@ -1,12 +1,124 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
 
-:root {
-  --background: #1a1a1a;
-  --foreground: #ffffff;
-}
+@custom-variant dark (&:is(.dark *));
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   scroll-behavior: smooth;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.65rem;
+  --background: hsl(1 0 0);
+  --foreground: hsl(0.141 0.005 285.823);
+  --card: hsl(1 0 0);
+  --card-foreground: hsl(0.141 0.005 285.823);
+  --popover: hsl(1 0 0);
+  --popover-foreground: hsl(0.141 0.005 285.823);
+  --primary: hsl(0.623 0.214 259.815);
+  --primary-foreground: hsl(0.97 0.014 254.604);
+  --secondary: hsl(0.967 0.001 286.375);
+  --secondary-foreground: hsl(0.21 0.006 285.885);
+  --muted: hsl(0.967 0.001 286.375);
+  --muted-foreground: hsl(0.552 0.016 285.938);
+  --accent: hsl(0.967 0.001 286.375);
+  --accent-foreground: hsl(0.21 0.006 285.885);
+  --destructive: hsl(0.577 0.245 27.325);
+  --border: hsl(0.92 0.004 286.32);
+  --input: hsl(0.92 0.004 286.32);
+  --ring: hsl(0.623 0.214 259.815);
+  --chart-1: hsl(0.646 0.222 41.116);
+  --chart-2: hsl(0.6 0.118 184.704);
+  --chart-3: hsl(0.398 0.07 227.392);
+  --chart-4: hsl(0.828 0.189 84.429);
+  --chart-5: hsl(0.769 0.188 70.08);
+  --sidebar: hsl(0.985 0 0);
+  --sidebar-foreground: hsl(0.141 0.005 285.823);
+  --sidebar-primary: hsl(0.623 0.214 259.815);
+  --sidebar-primary-foreground: hsl(0.97 0.014 254.604);
+  --sidebar-accent: hsl(0.967 0.001 286.375);
+  --sidebar-accent-foreground: hsl(0.21 0.006 285.885);
+  --sidebar-border: hsl(0.92 0.004 286.32);
+  --sidebar-ring: hsl(0.623 0.214 259.815);
+}
+
+.dark {
+  --background: hsl(0.141 0.005 285.823);
+  --foreground: hsl(0.985 0 0);
+  --card: hsl(0.21 0.006 285.885);
+  --card-foreground: hsl(0.985 0 0);
+  --popover: hsl(0.21 0.006 285.885);
+  --popover-foreground: hsl(0.985 0 0);
+  --primary: hsl(0.546 0.245 262.881);
+  --primary-foreground: hsl(0.379 0.146 265.522);
+  --secondary: hsl(0.274 0.006 286.033);
+  --secondary-foreground: hsl(0.985 0 0);
+  --muted: hsl(0.274 0.006 286.033);
+  --muted-foreground: hsl(0.705 0.015 286.067);
+  --accent: hsl(0.274 0.006 286.033);
+  --accent-foreground: hsl(0.985 0 0);
+  --destructive: hsl(0.704 0.191 22.216);
+  --border: hsl(1 0 0 / 10%);
+  --input: hsl(1 0 0 / 15%);
+  --ring: hsl(0.488 0.243 264.376);
+  --chart-1: hsl(0.488 0.243 264.376);
+  --chart-2: hsl(0.696 0.17 162.48);
+  --chart-3: hsl(0.769 0.188 70.08);
+  --chart-4: hsl(0.627 0.265 303.9);
+  --chart-5: hsl(0.645 0.246 16.439);
+  --sidebar: hsl(0.21 0.006 285.885);
+  --sidebar-foreground: hsl(0.985 0 0);
+  --sidebar-primary: hsl(0.546 0.245 262.881);
+  --sidebar-primary-foreground: hsl(0.379 0.146 265.522);
+  --sidebar-accent: hsl(0.274 0.006 286.033);
+  --sidebar-accent-foreground: hsl(0.985 0 0);
+  --sidebar-border: hsl(1 0 0 / 10%);
+  --sidebar-ring: hsl(0.488 0.243 264.376);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

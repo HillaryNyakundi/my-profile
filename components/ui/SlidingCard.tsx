@@ -1,16 +1,17 @@
-// components/ui/SlidingCard.tsx
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { ExternalLink, Github, Calendar } from 'lucide-react';
 import {
-  ExternalLink,
-  Github,
-  Calendar,
-  ChevronLeft,
-  ChevronRight,
-} from 'lucide-react';
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from '@/components/ui/carousel';
+import { Card, CardContent } from '@/components/ui/card';
 import type { Project, BlogPost } from '@/types';
 
 interface SlidingCardProps {
@@ -28,63 +29,26 @@ export default function SlidingCard({
   slideInterval = 3000,
   className = '',
 }: SlidingCardProps) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [api, setApi] = useState<CarouselApi>();
   const [isPaused, setIsPaused] = useState(false);
 
-  const checkScroll = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
-    }
-  };
-
   useEffect(() => {
-    checkScroll();
-    const scrollContainer = scrollRef.current;
-    if (scrollContainer) {
-      scrollContainer.addEventListener('scroll', checkScroll);
-      return () => scrollContainer.removeEventListener('scroll', checkScroll);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!autoSlide || isPaused) return;
+    if (!autoSlide || !api || isPaused) return;
 
     const interval = setInterval(() => {
-      if (scrollRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-        if (scrollLeft >= scrollWidth - clientWidth - 1) {
-          scrollRef.current.scrollLeft = 0;
-        } else {
-          scrollRef.current.scrollBy({ left: 400, behavior: 'smooth' });
-        }
+      if (api.canScrollNext()) {
+        api.scrollNext();
+      } else {
+        api.scrollTo(0);
       }
     }, slideInterval);
 
     return () => clearInterval(interval);
-  }, [autoSlide, slideInterval, isPaused]);
+  }, [api, autoSlide, slideInterval, isPaused]);
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const scrollAmount = 400;
-      scrollRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth',
-      });
-    }
-  };
-
-  const renderProjectCard = (project: Project, index: number) => (
-    <motion.div
-      key={project.id}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="min-w-[350px] bg-[#2a2a2a] rounded-xl overflow-hidden group"
+  const renderProjectCard = (project: Project) => (
+    <Card
+      className="h-full bg-[#2a2a2a] border-gray-700 overflow-hidden group"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -101,12 +65,15 @@ export default function SlidingCard({
           />
         )}
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+      <CardContent className="p-6">
+        <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
         <p className="text-gray-400 text-sm mb-4 line-clamp-3">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech) => (
-            <span key={tech} className="px-2 py-1 bg-gray-700 rounded text-xs">
+            <span
+              key={tech}
+              className="px-2 py-1 bg-gray-700 rounded text-xs text-gray-300"
+            >
               {tech}
             </span>
           ))}
@@ -135,18 +102,13 @@ export default function SlidingCard({
             </a>
           )}
         </div>
-      </div>
-    </motion.div>
+      </CardContent>
+    </Card>
   );
 
-  const renderBlogCard = (blog: BlogPost, index: number) => (
-    <motion.article
-      key={blog.id}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="min-w-[350px] bg-[#2a2a2a] rounded-xl overflow-hidden group"
+  const renderBlogCard = (blog: BlogPost) => (
+    <Card
+      className="h-full bg-[#2a2a2a] border-gray-700 overflow-hidden group"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -163,8 +125,8 @@ export default function SlidingCard({
           />
         )}
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 line-clamp-2">{blog.title}</h3>
+      <CardContent className="p-6">
+        <h3 className="text-xl font-bold mb-2 line-clamp-2 text-white">{blog.title}</h3>
         <p className="text-gray-400 text-sm mb-4 line-clamp-3">{blog.brief}</p>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 text-sm text-gray-500">
@@ -180,38 +142,31 @@ export default function SlidingCard({
             Read More →
           </a>
         </div>
-      </div>
-    </motion.article>
+      </CardContent>
+    </Card>
   );
 
   return (
-    <div className={`relative ${className}`}>
-      <div ref={scrollRef} className="flex gap-6 overflow-x-auto hide-scrollbar pb-4">
-        {items.map((item, index) =>
-          type === 'project'
-            ? renderProjectCard(item as Project, index)
-            : renderBlogCard(item as BlogPost, index)
-        )}
-      </div>
-
-      {canScrollLeft && (
-        <button
-          onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition-colors"
-          aria-label="Scroll left"
-        >
-          <ChevronLeft size={20} />
-        </button>
-      )}
-      {canScrollRight && (
-        <button
-          onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition-colors"
-          aria-label="Scroll right"
-        >
-          <ChevronRight size={20} />
-        </button>
-      )}
-    </div>
+    <Carousel
+      setApi={setApi}
+      className={`w-full ${className}`}
+      opts={{
+        align: 'start',
+        loop: true,
+        slidesToScroll: 1,
+      }}
+    >
+      <CarouselContent className="-ml-4">
+        {items.map((item) => (
+          <CarouselItem key={item.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+            {type === 'project'
+              ? renderProjectCard(item as Project)
+              : renderBlogCard(item as BlogPost)}
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious className="bg-gray-800 hover:bg-gray-700 text-white border-gray-700" />
+      <CarouselNext className="bg-gray-800 hover:bg-gray-700 text-white border-gray-700" />
+    </Carousel>
   );
 }

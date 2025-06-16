@@ -2,17 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Home,
-  User,
-  Briefcase,
-  Code,
-  BookOpen,
-  Mail,
-  Moon,
-  Sun,
-  Sparkles,
-} from 'lucide-react';
+import { Home, User, Briefcase, Code, BookOpen, Mail, Sparkles } from 'lucide-react';
 
 const navItems = [
   { id: 'hero', icon: Home, label: 'Home' },
@@ -26,7 +16,6 @@ const navItems = [
 
 export default function FloatingNavbar() {
   const [activeSection, setActiveSection] = useState('hero');
-  const [isDark, setIsDark] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
@@ -153,37 +142,6 @@ export default function FloatingNavbar() {
                 </div>
               );
             })}
-
-            <div className="w-px h-8 bg-gray-700 mx-1" />
-
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsDark(!isDark)}
-              onMouseEnter={() => setHoveredItem('theme')}
-              onMouseLeave={() => setHoveredItem(null)}
-              className="relative p-3 rounded-full text-gray-400 hover:text-white hover:bg-gray-800 transition-all duration-300"
-            >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
-
-              {/* Theme tooltip */}
-              <AnimatePresence>
-                {hoveredItem === 'theme' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap"
-                  >
-                    {isDark ? 'Light mode' : 'Dark mode'}
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1">
-                      <div className="w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-t-4 border-t-gray-900" />
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.button>
           </motion.div>
         </motion.nav>
       )}
