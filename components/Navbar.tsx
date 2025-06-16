@@ -91,7 +91,7 @@ export default function FloatingNavbar() {
           className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50"
         >
           <motion.div
-            className="bg-[#1a1a1a]/90 backdrop-blur-md rounded-full px-4 py-3 flex items-center gap-2 border border-gray-800 shadow-lg"
+            className="bg-[#1a1a1a]/90 backdrop-blur-md rounded-full px-3 py-2 flex items-center gap-1 md:gap-2 border border-gray-800 shadow-lg"
             whileHover={{ scale: 1.02 }}
           >
             {navItems.map((item) => {

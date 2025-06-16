@@ -1,4 +1,3 @@
-// components/ui/TypewriterText.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
