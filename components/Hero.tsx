@@ -46,8 +46,7 @@ export default function Hero() {
             className="text-center md:text-left max-w-2xl"
           >
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Hi, I am{' '}
-              <TypewriterText text="Hillary Nyakundi" className="text-blue-500" />
+              Meet, <TypewriterText text="Hillary Nyakundi" className="text-blue-500" />
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-6">
               A <span className="text-blue-500 font-semibold">Software Engineer</span>{' '}

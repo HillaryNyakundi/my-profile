@@ -165,8 +165,9 @@ export default function SlidingCard({
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="bg-gray-800 hover:bg-gray-700 text-white border-gray-700" />
-      <CarouselNext className="bg-gray-800 hover:bg-gray-700 text-white border-gray-700" />
+      {/* Position buttons absolutely within the carousel container */}
+      <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700/80 text-white border-gray-700 backdrop-blur-sm" />
+      <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700/80 text-white border-gray-700 backdrop-blur-sm" />
     </Carousel>
   );
 }

@@ -1,11 +1,15 @@
-// components/ui/SwipeableCard.tsx (Enhanced Version)
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
+import { useEffect, useState } from 'react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { Experience } from '@/types';
 
@@ -15,48 +19,35 @@ interface SwipeableCardProps {
 }
 
 export default function SwipeableCard({ items, className = '' }: SwipeableCardProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: 'center',
-    skipSnaps: false,
-    dragFree: true,
-  });
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  const scrollTo = useCallback(
-    (index: number) => {
-      if (emblaApi) emblaApi.scrollTo(index);
-    },
-    [emblaApi]
-  );
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on('select', onSelect);
-    emblaApi.on('reInit', onSelect);
-  }, [emblaApi, onSelect]);
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   return (
     <div className={cn('relative', className)}>
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
+      <Carousel
+        setApi={setApi}
+        className="w-full"
+        opts={{
+          align: 'center',
+          loop: true,
+        }}
+      >
+        <CarouselContent>
           {items.map((item, index) => (
-            <div key={index} className="flex-[0_0_100%] min-w-0 px-4">
-              <Card className="bg-[#2a2a2a] border-gray-700 cursor-grab active:cursor-grabbing">
+            <CarouselItem key={index}>
+              <Card className="bg-[#2a2a2a] border-gray-700">
                 <CardContent className="p-8">
                   <div className="flex items-start gap-4 mb-6">
                     <div className="flex-1">
@@ -87,42 +78,22 @@ export default function SwipeableCard({ items, className = '' }: SwipeableCardPr
                   </div>
                 </CardContent>
               </Card>
-            </div>
+            </CarouselItem>
           ))}
-        </div>
-      </div>
+        </CarouselContent>
+        <CarouselPrevious className="bg-gray-800 hover:bg-gray-700 text-white border-gray-700 -left-4 md:-left-8" />
+        <CarouselNext className="bg-gray-800 hover:bg-gray-700 text-white border-gray-700 -right-4 md:-right-8" />
+      </Carousel>
 
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={scrollPrev}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 bg-gray-800 hover:bg-gray-700 text-white rounded-full"
-        aria-label="Previous experience"
-      >
-        <ChevronLeft className="h-4 w-4" />
-      </Button>
-
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={scrollNext}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 bg-gray-800 hover:bg-gray-700 text-white rounded-full"
-        aria-label="Next experience"
-      >
-        <ChevronRight className="h-4 w-4" />
-      </Button>
-
-      {/* Dots indicator */}
+      {/* Custom dots indicator */}
       <div className="flex justify-center gap-2 mt-6">
         {items.map((_, idx) => (
           <button
             key={idx}
-            onClick={() => scrollTo(idx)}
+            onClick={() => api?.scrollTo(idx)}
             className={cn(
-              'h-2 rounded-full transition-all duration-300',
-              idx === selectedIndex
-                ? 'bg-blue-600 w-8'
-                : 'bg-gray-600 w-2 hover:bg-gray-500'
+              'h-2 rounded-full transition-all',
+              idx === current ? 'bg-blue-600 w-8' : 'bg-gray-600 w-2'
             )}
             aria-label={`Go to experience ${idx + 1}`}
           />
