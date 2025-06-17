@@ -49,7 +49,7 @@ export default function Hero() {
                 className="text-2xl/normal md:text-4xl/normal lg:text-5xl/normal font-bold text-blue-500"
               />
             </div>
-            <p className="text-xl md:text-2xl text-gray-300 mb-6">
+            <p className="text-xl md:text-2xl text-gray-300 mb-4">
               A <span className="text-blue-500 font-semibold">Software Engineer</span>{' '}
               based in Nairobi, Kenya.
             </p>
