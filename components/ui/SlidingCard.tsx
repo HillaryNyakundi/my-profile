@@ -48,7 +48,7 @@ export default function SlidingCard({
 
   const renderProjectCard = (project: Project) => (
     <Card
-      className="h-full bg-[#1a1a1a] border-gray-700 overflow-hidden group"
+      className="h-full bg-[#2a2a2a] border-gray-700 overflow-hidden group"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >

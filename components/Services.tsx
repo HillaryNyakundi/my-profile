@@ -26,7 +26,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-[#1a1a1a] rounded-xl p-8 border border-gray-800 hover:border-gray-700 transition-all duration-300 group"
+              className="bg-[#2a2a2a] rounded-xl p-8 border border-gray-800 hover:border-gray-700 transition-all duration-300 group"
             >
               {/* Icons */}
               <div className="flex gap-3 mb-6">
