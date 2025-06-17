@@ -39,3 +39,14 @@ export interface SkillCategory {
   title: string;
   skills: Skill[];
 }
+
+export interface Icon {
+  icon: IconType;
+  color: string;
+}
+
+export interface Service {
+  title: string;
+  description: string;
+  icons: Icon[];
+}

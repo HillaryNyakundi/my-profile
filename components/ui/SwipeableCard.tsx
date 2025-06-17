@@ -47,7 +47,7 @@ export default function SwipeableCard({ items, className = '' }: SwipeableCardPr
         <CarouselContent>
           {items.map((item, index) => (
             <CarouselItem key={index}>
-              <Card className="bg-[#2a2a2a] border-gray-700">
+              <Card className="bg-[#1a1a1a] border-gray-700">
                 <CardContent className="p-8">
                   <div className="flex items-start gap-4 mb-6">
                     <div className="flex-1">

@@ -21,9 +21,23 @@ import {
   SiMysql,
   SiFirebase,
   SiUbuntu,
+  SiFigma,
 } from 'react-icons/si';
 import { TbBrandReactNative } from 'react-icons/tb';
-import type { Experience, Project, SkillCategory } from '@/types';
+import type { Experience, Project, Service, SkillCategory } from '@/types';
+import {
+  BarChart3,
+  Cloud,
+  Database,
+  GitBranch,
+  Globe,
+  Palette,
+  Server,
+  Settings,
+  Shield,
+  Smartphone,
+  Zap,
+} from 'lucide-react';
 
 export const skillCategories: SkillCategory[] = [
   {
@@ -178,5 +192,80 @@ export const projects: Project[] = [
     technologies: ['CSS', 'Python', 'React', 'JavaScript', 'HTML'],
     github: 'https://github.com/HillaryNyakundi/GuarantorsGuard',
     demo: 'https://guarantorguard.vercel.app/',
+  },
+];
+
+export const services: Service[] = [
+  {
+    title: 'Mobile App Development',
+    description:
+      'I create captivating mobile apps from concept to deployment for iOS and Android. Using cutting-edge technologies, I ensure seamless performance, intuitive interfaces, and robust functionality that align with your business goals. Enjoy a flawless user experience and outstanding results.',
+    icons: [
+      { icon: Smartphone, color: '#FFFFFF' },
+      { icon: SiReact, color: '#61DAFB' },
+      { icon: SiFlutter, color: '#02569B' },
+      { icon: TbBrandReactNative, color: '#61DAFB' },
+      { icon: SiFirebase, color: '#FFCA28' },
+    ],
+  },
+  {
+    title: 'Web Development',
+    description:
+      'I deliver stunning, user-friendly websites to establish your online presence. From simple sites to complex e-commerce platforms, I provide tailored solutions using the latest frameworks and technologies for a seamless, responsive, and SEO-friendly browsing experience. Enhance your online identity with quality.',
+    icons: [
+      { icon: Globe, color: '#FFFFFF' },
+      { icon: SiReact, color: '#61DAFB' },
+      { icon: SiNodedotjs, color: '#339933' },
+      { icon: SiHtml5, color: '#E34F26' },
+      { icon: SiCss3, color: '#1572B6' },
+    ],
+  },
+  {
+    title: 'Backend Development',
+    description:
+      'I enhance digital applications with robust, scalable backend infrastructures. I develop efficient database structures, APIs, and configure servers for optimal performance, security, and scalability, ensuring your applications handle high traffic and complex data management seamlessly. Rely on strong backend solutions.',
+    icons: [
+      { icon: Server, color: '#FFFFFF' },
+      { icon: SiNodedotjs, color: '#339933' },
+      { icon: SiExpress, color: '#FFFFFF' },
+      { icon: Database, color: '#FFFFFF' },
+      { icon: Cloud, color: '#FFFFFF' },
+    ],
+  },
+  {
+    title: 'Product Strategy',
+    description:
+      "I collaborate to define clear goals, target audiences, and a success roadmap. My expertise in product ideation and market analysis ensures your product meets user needs and aligns with your business strategy for long-term growth and full potential realization. Drive your product's success with strategic planning.",
+    icons: [
+      { icon: BarChart3, color: '#FFFFFF' },
+      { icon: Palette, color: '#FFFFFF' },
+      { icon: SiFigma, color: '#F24E1E' },
+      { icon: Zap, color: '#FFFFFF' },
+      { icon: Settings, color: '#FFFFFF' },
+    ],
+  },
+  {
+    title: 'DevOps',
+    description:
+      'I streamline development and operations processes through effective DevOps practices. I implement continuous integration and deployment pipelines, manage cloud infrastructure, and use containerization to ensure efficient, reliable, and scalable software delivery. Improve your workflow with DevOps solutions.',
+    icons: [
+      { icon: GitBranch, color: '#FFFFFF' },
+      { icon: SiDocker, color: '#2496ED' },
+      { icon: SiAmazon, color: '#FF9900' },
+      { icon: Cloud, color: '#FFFFFF' },
+      { icon: Settings, color: '#FFFFFF' },
+    ],
+  },
+  {
+    title: 'Database Management',
+    description:
+      'I manage and optimize your database systems for performance, reliability, and scalability. With expertise in SQL and NoSQL databases, I design schemas, write complex queries, and implement best practices for data integrity and security. Ensure your data is managed effectively and efficiently.',
+    icons: [
+      { icon: Database, color: '#FFFFFF' },
+      { icon: SiPostgresql, color: '#4169E1' },
+      { icon: SiMongodb, color: '#47A248' },
+      { icon: Shield, color: '#FFFFFF' },
+      { icon: Server, color: '#FFFFFF' },
+    ],
   },
 ];

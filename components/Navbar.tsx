@@ -2,13 +2,13 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, User, Briefcase, Code, Mail, Sparkles } from 'lucide-react';
+import { User, Briefcase, Code, Mail, Sparkles, CircuitBoard } from 'lucide-react';
 
 const navItems = [
-  { id: 'hero', icon: Home, label: 'Home' },
-  { id: 'about', icon: User, label: 'About' },
+  { id: 'hero', icon: User, label: 'About' },
+  { id: 'services', icon: Briefcase, label: 'Services' },
   { id: 'skills', icon: Sparkles, label: 'Skills' },
-  { id: 'experience', icon: Briefcase, label: 'Experience' },
+  { id: 'experience', icon: CircuitBoard, label: 'Experience' },
   { id: 'projects', icon: Code, label: 'Projects' },
   //{ id: 'blog', icon: BookOpen, label: 'Blog' },
   { id: 'contact', icon: Mail, label: 'Contact' },

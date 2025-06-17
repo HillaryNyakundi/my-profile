@@ -48,7 +48,7 @@ export default function SlidingCard({
 
   const renderProjectCard = (project: Project) => (
     <Card
-      className="h-full bg-[#2a2a2a] border-gray-700 overflow-hidden group"
+      className="h-full bg-[#1a1a1a] border-gray-700 overflow-hidden group"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -66,7 +66,7 @@ export default function SlidingCard({
         )}
       </div>
       <CardContent className="p-6">
-        <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
+        <h3 className="text-xl font-bold mb-2 text-blue-400">{project.title}</h3>
         <p className="text-gray-400 text-sm mb-4 line-clamp-3">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech) => (

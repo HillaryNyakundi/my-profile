@@ -21,7 +21,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">My Skills</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto" />
           <p className="text-gray-400 mt-4">
             Technologies have been working with recently
@@ -36,9 +36,9 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
-              className="bg-[#2a2a2a] rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-colors"
+              className="bg-[#1a1a1a] rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-colors"
             >
-              <h3 className="text-xl font-semibold mb-6 text-center">
+              <h3 className="text-xl font-semibold mb-4 text-blue-400 text-center">
                 {category.title}
               </h3>
 
@@ -66,7 +66,7 @@ export default function Skills() {
                     >
                       <div className="relative">
                         <Icon
-                          size={40}
+                          size={24}
                           style={{ color: isCustomIcon ? '#FFFFFF' : skill.color }}
                           className="mb-2 group-hover:scale-110 transition-transform"
                         />
