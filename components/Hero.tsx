@@ -59,7 +59,7 @@ export default function Hero() {
             </p>
             <p className="text-gray-400 mb-8">
               I am available for <span className="text-white">freelancing</span> or{' '}
-              <span className="text-white">full-time</span> gig.
+              <span className="text-white">full-time</span> gigs.
             </p>
             <div className="mb-3">
               <TalkButton />

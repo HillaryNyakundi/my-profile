@@ -51,7 +51,7 @@ export default function SwipeableCard({ items, className = '' }: SwipeableCardPr
                 <CardContent className="p-8">
                   <div className="flex items-start gap-4 mb-6">
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-white">{item.title}</h3>
+                      <h3 className="text-2xl font-bold text-blue-400">{item.title}</h3>
                       <p className="text-gray-400">{item.company}</p>
                       <p className="text-sm text-gray-500 mt-1">{item.period}</p>
                     </div>
