@@ -29,7 +29,7 @@ export default function Contact() {
             <h3 className="text-2xl font-semibold mb-6">Get in touch</h3>
             <div className="space-y-4">
               <a
-                href="mailto:edwinchebii@kibet.com"
+                href="mailto:hillarynyakundi66@gmail.com"
                 className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
               >
                 <Mail
@@ -39,7 +39,7 @@ export default function Contact() {
                 <span>hillarynyakundi66@gmail.com</span>
               </a>
               <a
-                href="tel:+254701200709"
+                href="tel:+254741467228"
                 className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
               >
                 <Phone

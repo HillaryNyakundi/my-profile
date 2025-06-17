@@ -2,16 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-//import { ChevronDown } from 'lucide-react';
 import { FlipWords } from './common/FlipWords';
 import TalkButton from './ui/TalkButton';
 
 export default function Hero() {
-  // const scrollToProjects = () => {
-  //   const element = document.getElementById('projects');
-  //   element?.scrollIntoView({ behavior: 'smooth' });
-  // };
-
   return (
     <section
       id="hero"
@@ -59,18 +53,14 @@ export default function Hero() {
               A <span className="text-blue-500 font-semibold">Software Engineer</span>{' '}
               based in Nairobi, Kenya.
             </p>
-            <p className="text-gray-400 mb-8">
+            <p className="text-gray-400 mb-4">
               Working towards creating software that makes life easier and more
               meaningful.
             </p>
-            {/* <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={scrollToProjects}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
-            >
-              View Projects
-            </motion.button> */}
+            <p className="text-gray-400 mb-8">
+              I am available for <span className="text-white">freelancing</span> or{' '}
+              <span className="text-white">full-time</span> gig.
+            </p>
             <TalkButton />
           </motion.div>
         </div>
