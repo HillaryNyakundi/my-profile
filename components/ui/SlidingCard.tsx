@@ -12,6 +12,7 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 import type { Project, BlogPost } from '@/types';
 
 interface SlidingCardProps {
@@ -31,6 +32,21 @@ export default function SlidingCard({
 }: SlidingCardProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [isPaused, setIsPaused] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
 
   useEffect(() => {
     if (!autoSlide || !api || isPaused) return;
@@ -48,11 +64,11 @@ export default function SlidingCard({
 
   const renderProjectCard = (project: Project) => (
     <Card
-      className="h-full bg-[#2a2a2a] border-gray-700 overflow-hidden group"
+      className="h-full bg-[#2a2a2a] border-gray-700 overflow-hidden group hover:border-gray-600 transition-colors"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="h-48 relative bg-gradient-to-br from-purple-600 to-blue-600 overflow-hidden">
+      <div className="h-32 sm:h-40 md:h-48 relative bg-gradient-to-br from-purple-600 to-blue-600 overflow-hidden">
         {project.image && (
           <Image
             src={project.image}
@@ -65,28 +81,41 @@ export default function SlidingCard({
           />
         )}
       </div>
-      <CardContent className="p-6">
-        <h3 className="text-xl font-bold mb-2 text-blue-400">{project.title}</h3>
-        <p className="text-gray-400 text-sm mb-4 line-clamp-3">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech) => (
+      <CardContent className="p-4 sm:p-5 md:p-6">
+        <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-blue-400 line-clamp-2">
+          {project.title}
+        </h3>
+        <p className="text-gray-400 text-xs sm:text-sm mb-3 md:mb-4 line-clamp-2 sm:line-clamp-3">
+          {project.description}
+        </p>
+
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2 mb-3 md:mb-4">
+          {project.technologies.slice(0, 4).map((tech) => (
             <span
               key={tech}
-              className="px-2 py-1 bg-gray-700 rounded text-xs text-gray-300"
+              className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-gray-700 rounded text-xs text-gray-300"
             >
               {tech}
             </span>
           ))}
+          {project.technologies.length > 4 && (
+            <span className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-gray-700 rounded text-xs text-gray-300">
+              +{project.technologies.length - 4}
+            </span>
+          )}
         </div>
-        <div className="flex gap-4">
+
+        {/* Links */}
+        <div className="flex gap-3 sm:gap-4">
           {project.github && (
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+              className="flex items-center gap-1 sm:gap-2 text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
             >
-              <Github size={16} />
+              <Github size={14} className="sm:w-4 sm:h-4" />
               <span>Code</span>
             </a>
           )}
@@ -95,9 +124,9 @@ export default function SlidingCard({
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+              className="flex items-center gap-1 sm:gap-2 text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
             >
-              <ExternalLink size={16} />
+              <ExternalLink size={14} className="sm:w-4 sm:h-4" />
               <span>Demo</span>
             </a>
           )}
@@ -108,11 +137,11 @@ export default function SlidingCard({
 
   const renderBlogCard = (blog: BlogPost) => (
     <Card
-      className="h-full bg-[#2a2a2a] border-gray-700 overflow-hidden group"
+      className="h-full bg-[#2a2a2a] border-gray-700 overflow-hidden group hover:border-gray-600 transition-colors"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="h-48 relative bg-gradient-to-br from-blue-600 to-purple-600">
+      <div className="h-32 sm:h-40 md:h-48 relative bg-gradient-to-br from-blue-600 to-purple-600">
         {blog.coverImage && (
           <Image
             src={blog.coverImage}
@@ -125,19 +154,23 @@ export default function SlidingCard({
           />
         )}
       </div>
-      <CardContent className="p-6">
-        <h3 className="text-xl font-bold mb-2 line-clamp-2 text-white">{blog.title}</h3>
-        <p className="text-gray-400 text-sm mb-4 line-clamp-3">{blog.brief}</p>
+      <CardContent className="p-4 sm:p-5 md:p-6">
+        <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 line-clamp-2 text-white">
+          {blog.title}
+        </h3>
+        <p className="text-gray-400 text-xs sm:text-sm mb-3 md:mb-4 line-clamp-2 sm:line-clamp-3">
+          {blog.brief}
+        </p>
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm text-gray-500">
-            <Calendar size={14} />
+          <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-gray-500">
+            <Calendar size={12} className="sm:w-3.5 sm:h-3.5" />
             <span>{new Date(blog.dateAdded).toLocaleDateString()}</span>
           </div>
           <a
             href={blog.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 transition-colors"
+            className="text-blue-400 hover:text-blue-300 transition-colors text-xs sm:text-sm"
           >
             Read More →
           </a>
@@ -147,27 +180,60 @@ export default function SlidingCard({
   );
 
   return (
-    <Carousel
-      setApi={setApi}
-      className={`w-full ${className}`}
-      opts={{
-        align: 'start',
-        loop: true,
-        slidesToScroll: 1,
-      }}
-    >
-      <CarouselContent className="-ml-4">
-        {items.map((item) => (
-          <CarouselItem key={item.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-            {type === 'project'
-              ? renderProjectCard(item as Project)
-              : renderBlogCard(item as BlogPost)}
-          </CarouselItem>
+    <div className={cn('relative w-full', className)}>
+      <Carousel
+        setApi={setApi}
+        className="w-full"
+        opts={{
+          align: 'start',
+          loop: true,
+          slidesToScroll: 1,
+        }}
+      >
+        <CarouselContent className="-ml-2 sm:-ml-3 md:-ml-4">
+          {items.map((item) => (
+            <CarouselItem
+              key={item.id}
+              className="pl-2 sm:pl-3 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+            >
+              {type === 'project'
+                ? renderProjectCard(item as Project)
+                : renderBlogCard(item as BlogPost)}
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+
+        {/* Navigation buttons */}
+        <CarouselPrevious className="sm:flex absolute -left-2 sm:-left-3 md:-left-4 lg:-left-12 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 bg-gray-800/80 hover:bg-gray-700/80 text-white border-gray-700 backdrop-blur-sm" />
+        <CarouselNext className="sm:flex absolute -right-2 sm:-right-3 md:-right-4 lg:-right-12 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 bg-gray-800/80 hover:bg-gray-700/80 text-white border-gray-700 backdrop-blur-sm" />
+      </Carousel>
+
+      {/* Dots indicator for mobile */}
+      <div className="sm:hidden flex justify-center items-center gap-1.5 mt-4">
+        {Array.from({ length: count }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => api?.scrollTo(index)}
+            className={cn(
+              'h-1.5 rounded-full transition-all duration-300',
+              current === index + 1 ? 'bg-blue-600 w-4' : 'bg-gray-600 w-1.5'
+            )}
+            aria-label={`Go to ${type} ${index + 1}`}
+          />
         ))}
-      </CarouselContent>
-      {/* Position buttons absolutely within the carousel container */}
-      <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700/80 text-white border-gray-700 backdrop-blur-sm" />
-      <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700/80 text-white border-gray-700 backdrop-blur-sm" />
-    </Carousel>
+      </div>
+
+      {/* Progress indicator for larger screens */}
+      <div className="hidden sm:flex justify-center items-center gap-2 mt-6">
+        <span className="text-xs text-gray-500">
+          {current} / {count}
+        </span>
+      </div>
+
+      {/* Mobile swipe hint */}
+      <div className="sm:hidden text-center mt-2">
+        <p className="text-xs text-gray-500">Swipe to browse</p>
+      </div>
+    </div>
   );
 }
