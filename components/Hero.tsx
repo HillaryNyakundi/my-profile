@@ -61,18 +61,12 @@ export default function Hero() {
               I am available for <span className="text-white">freelancing</span> or{' '}
               <span className="text-white">full-time</span> gig.
             </p>
-            <TalkButton />
+            <div className="mb-3">
+              <TalkButton />
+            </div>
           </motion.div>
         </div>
       </div>
-
-      {/* <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <ChevronDown size={32} className="text-gray-500" />
-      </motion.div> */}
     </section>
   );
 }
