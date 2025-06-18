@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { ExternalLink, Github, Calendar } from 'lucide-react';
+import { ExternalLink, Calendar } from 'lucide-react';
+import { SiGithub } from 'react-icons/si';
 import {
   Carousel,
   CarouselContent,
@@ -115,7 +116,7 @@ export default function SlidingCard({
               rel="noopener noreferrer"
               className="flex items-center gap-1 sm:gap-2 text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
             >
-              <Github size={14} className="sm:w-4 sm:h-4" />
+              <SiGithub size={14} className="sm:w-4 sm:h-4" />
               <span>Code</span>
             </a>
           )}
@@ -204,8 +205,8 @@ export default function SlidingCard({
         </CarouselContent>
 
         {/* Navigation buttons */}
-        <CarouselPrevious className="sm:flex absolute -left-2 sm:-left-3 md:-left-4 lg:-left-12 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 bg-gray-800/80 hover:bg-gray-700/80 text-white border-gray-700 backdrop-blur-sm" />
-        <CarouselNext className="sm:flex absolute -right-2 sm:-right-3 md:-right-4 lg:-right-12 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 bg-gray-800/80 hover:bg-gray-700/80 text-white border-gray-700 backdrop-blur-sm" />
+        <CarouselPrevious className="hidden sm:flex absolute -left-2 sm:-left-3 md:-left-4 lg:-left-12 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 bg-gray-800/80 hover:bg-gray-700/80 text-white border-gray-700 backdrop-blur-sm" />
+        <CarouselNext className="hidden sm:flex absolute -right-2 sm:-right-3 md:-right-4 lg:-right-12 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 bg-gray-800/80 hover:bg-gray-700/80 text-white border-gray-700 backdrop-blur-sm" />
       </Carousel>
 
       {/* Dots indicator for mobile */}

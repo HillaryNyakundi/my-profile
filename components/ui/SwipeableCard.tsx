@@ -103,8 +103,8 @@ export default function SwipeableCard({ items, className = '' }: SwipeableCardPr
         </CarouselContent>
 
         {/* Navigation Buttons */}
-        <CarouselPrevious className="sm:flex bg-gray-800 hover:bg-gray-700 text-white border-gray-700 -left-2 sm:-left-4 md:-left-12 lg:-left-16 h-8 w-8 sm:h-10 sm:w-10" />
-        <CarouselNext className="sm:flex bg-gray-800 hover:bg-gray-700 text-white border-gray-700 -right-2 sm:-right-4 md:-right-12 lg:-right-16 h-8 w-8 sm:h-10 sm:w-10" />
+        <CarouselPrevious className="hidden sm:flex bg-gray-800 hover:bg-gray-700 text-white border-gray-700 -left-2 sm:-left-4 md:-left-12 lg:-left-16 h-8 w-8 sm:h-10 sm:w-10" />
+        <CarouselNext className="hidden sm:flex bg-gray-800 hover:bg-gray-700 text-white border-gray-700 -right-2 sm:-right-4 md:-right-12 lg:-right-16 h-8 w-8 sm:h-10 sm:w-10" />
       </Carousel>
 
       {/* Dots Indicator */}

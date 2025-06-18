@@ -40,7 +40,7 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
             className="text-center md:text-left w-full max-w-2xl px-4 sm:px-6 md:px-0"
           >
-            <div className="inline-flex flex-wrap justify-center md:justify-start gap-2">
+            <div className="inline-flex flex-wrap justify-center md:justify-start">
               <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
                 Meet!
               </p>
