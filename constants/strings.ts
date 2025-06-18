@@ -1,6 +1,6 @@
 class Strings {
   static calendy = 'Calendy';
-  static calendyLink = 'https://calendly.com/hillarynyakundi66/30min';
+  static calendyLink = 'https://calendly.com/hillarynyakundi66';
   static calendyUsername = 'hillarynyakundi66';
 
   static github = 'GitHub';
