@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Run ESLint
-        run: npm Lint
+        run: npm run lint
 
       - name: Check build
-        run: npm build
+        run: npm run build
