@@ -62,9 +62,13 @@ export default function Hero() {
               I am available for <span className="text-white">freelancing</span> or{' '}
               <span className="text-white">full-time</span> gigs.
             </p>
-            <div className="flex flex-wrap gap-4 mb-3">
-              <TalkButton />
-              <GitHubButton />
+            <div className="flex flex-row gap-3 sm:gap-4 mb-3 justify-center md:justify-start w-full">
+              <div className="flex-1 min-w-0 max-w-[10rem] sm:max-w-none sm:flex-initial">
+                <TalkButton />
+              </div>
+              <div className="flex-1 min-w-0 max-w-[10rem] sm:max-w-none sm:flex-initial">
+                <GitHubButton />
+              </div>
             </div>
           </motion.div>
         </div>
