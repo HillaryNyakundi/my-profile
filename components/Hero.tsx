@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { FlipWords } from './common/FlipWords';
-import TalkButton from './ui/TalkButton';
-import GitHubButton from './ui/GitHubButton';
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { FlipWords } from "./common/FlipWords";
+import TalkButton from "./ui/TalkButton";
+import GitHubButton from "./ui/GitHubButton";
 
 export default function Hero() {
   return (
@@ -29,7 +29,7 @@ export default function Hero() {
                 className="object-cover w-full h-full"
                 priority
                 onError={(e) => {
-                  e.currentTarget.src = 'https://via.placeholder.com/320';
+                  e.currentTarget.src = "https://via.placeholder.com/320";
                 }}
               />
             </div>
@@ -46,12 +46,15 @@ export default function Hero() {
                 Meet!
               </p>
               <FlipWords
-                words={['Hillary Nyakundi.', '@hillarynyakundi.']}
+                words={["Hillary Nyakundi.", "@hillarynyakundi."]}
                 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-500"
               />
             </div>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mt-4 mb-4">
-              A <span className="text-blue-500 font-semibold">Software Engineer</span>{' '}
+              A{" "}
+              <span className="text-blue-500 font-semibold">
+                Software Engineer
+              </span>{" "}
               based in Nairobi, Kenya.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-4">
@@ -59,8 +62,8 @@ export default function Hero() {
               meaningful.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-6 sm:mb-8">
-              I am available for <span className="text-white">freelancing</span> or{' '}
-              <span className="text-white">full-time</span> gigs.
+              I am available for <span className="text-white">freelancing</span>{" "}
+              or <span className="text-white">full-time</span> job.
             </p>
             <div className="flex flex-row gap-3 sm:gap-4 mb-3 justify-center md:justify-start w-full">
               <div className="flex-1 min-w-0 max-w-[10rem] sm:max-w-none sm:flex-initial">
