@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FlipWords } from './common/FlipWords';
 import TalkButton from './ui/TalkButton';
+import GitHubButton from './ui/GitHubButton';
 
 export default function Hero() {
   return (
@@ -61,8 +62,9 @@ export default function Hero() {
               I am available for <span className="text-white">freelancing</span> or{' '}
               <span className="text-white">full-time</span> gigs.
             </p>
-            <div className="mb-3">
+            <div className="flex flex-wrap gap-4 mb-3">
               <TalkButton />
+              <GitHubButton />
             </div>
           </motion.div>
         </div>
