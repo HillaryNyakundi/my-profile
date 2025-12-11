@@ -4,8 +4,8 @@ class Strings {
   static calendyUsername = 'hillarynyakundi66';
 
   static github = 'GitHub';
-  static githubLink = 'https://www.github.com/nixrajput';
-  static githubUsername = 'nixrajput';
+  static githubLink = 'https://www.github.com/HillaryNyakundi';
+  static githubUsername = 'HillaryNyakundi';
 
   static linkedIn = 'LinkedIn';
   static linkedInLink = 'https://www.linkedin.com/in/nixrajput';
