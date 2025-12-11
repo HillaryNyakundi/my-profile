@@ -21,22 +21,16 @@ import {
   SiMysql,
   SiFirebase,
   SiUbuntu,
-  SiFigma,
 } from 'react-icons/si';
 import { TbBrandReactNative } from 'react-icons/tb';
 import type { Experience, Project, Service, SkillCategory } from '@/types';
 import {
-  BarChart3,
   Cloud,
   Database,
-  GitBranch,
   Globe,
-  Palette,
   Server,
-  Settings,
   Shield,
   Smartphone,
-  Zap,
 } from 'lucide-react';
 
 export const skillCategories: SkillCategory[] = [
@@ -230,30 +224,6 @@ export const services: Service[] = [
       { icon: SiExpress, color: '#FFFFFF' },
       { icon: Database, color: '#FFFFFF' },
       { icon: Cloud, color: '#FFFFFF' },
-    ],
-  },
-  {
-    title: 'Product Strategy',
-    description:
-      "I collaborate to define clear goals, target audiences, and a success roadmap. My expertise in product ideation and market analysis ensures your product meets user needs and aligns with your business strategy for long-term growth and full potential realization. Drive your product's success with strategic planning.",
-    icons: [
-      { icon: BarChart3, color: '#FFFFFF' },
-      { icon: Palette, color: '#FFFFFF' },
-      { icon: SiFigma, color: '#F24E1E' },
-      { icon: Zap, color: '#FFFFFF' },
-      { icon: Settings, color: '#FFFFFF' },
-    ],
-  },
-  {
-    title: 'DevOps',
-    description:
-      'I streamline development and operations processes through effective DevOps practices. I implement continuous integration and deployment pipelines, manage cloud infrastructure, and use containerization to ensure efficient, reliable, and scalable software delivery. Improve your workflow with DevOps solutions.',
-    icons: [
-      { icon: GitBranch, color: '#FFFFFF' },
-      { icon: SiDocker, color: '#2496ED' },
-      { icon: SiAmazon, color: '#FF9900' },
-      { icon: Cloud, color: '#FFFFFF' },
-      { icon: Settings, color: '#FFFFFF' },
     ],
   },
   {
