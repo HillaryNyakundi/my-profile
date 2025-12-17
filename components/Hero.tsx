@@ -58,7 +58,7 @@ export default function Hero() {
               based in Nairobi, Kenya.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-4">
-              Working towards creating software that makes life easier and more
+              I Work towards creating software that makes life easier and more
               meaningful.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-6 sm:mb-8">
