@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { ExternalLink, Calendar } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
 import {
   Carousel,
@@ -14,11 +14,10 @@ import {
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import type { Project, BlogPost } from '@/types';
+import type { Project } from '@/types';
 
 interface SlidingCardProps {
-  items: Project[] | BlogPost[];
-  type: 'project' | 'blog';
+  items: Project[];
   autoSlide?: boolean;
   slideInterval?: number;
   className?: string;
@@ -26,7 +25,6 @@ interface SlidingCardProps {
 
 export default function SlidingCard({
   items,
-  type,
   autoSlide = true,
   slideInterval = 3000,
   className = '',
@@ -41,12 +39,29 @@ export default function SlidingCard({
       return;
     }
 
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
-
-    api.on('select', () => {
+    const onSelect = () => {
       setCurrent(api.selectedScrollSnap() + 1);
-    });
+    };
+
+    const onInit = () => {
+      setCount(api.scrollSnapList().length);
+      setCurrent(api.selectedScrollSnap() + 1);
+    };
+
+    // Subscribe to events
+    api.on('init', onInit);
+    api.on('select', onSelect);
+
+    // If already initialized, call onInit manually
+    if (api.scrollSnapList().length > 0) {
+      onInit();
+    }
+
+    // Cleanup event listeners
+    return () => {
+      api.off('init', onInit);
+      api.off('select', onSelect);
+    };
   }, [api]);
 
   useEffect(() => {
@@ -136,49 +151,6 @@ export default function SlidingCard({
     </Card>
   );
 
-  const renderBlogCard = (blog: BlogPost) => (
-    <Card
-      className="h-full bg-[#2a2a2a] border-gray-700 overflow-hidden group hover:border-gray-600 transition-colors"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <div className="h-32 sm:h-40 md:h-48 relative bg-gradient-to-br from-blue-600 to-purple-600">
-        {blog.coverImage && (
-          <Image
-            src={blog.coverImage}
-            alt={blog.title}
-            fill
-            className="object-cover"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-            }}
-          />
-        )}
-      </div>
-      <CardContent className="p-4 sm:p-5 md:p-6">
-        <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 line-clamp-2 text-white">
-          {blog.title}
-        </h3>
-        <p className="text-gray-400 text-xs sm:text-sm mb-3 md:mb-4 line-clamp-2 sm:line-clamp-3">
-          {blog.brief}
-        </p>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-gray-500">
-            <Calendar size={12} className="sm:w-3.5 sm:h-3.5" />
-            <span>{new Date(blog.dateAdded).toLocaleDateString()}</span>
-          </div>
-          <a
-            href={blog.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 transition-colors text-xs sm:text-sm"
-          >
-            Read More →
-          </a>
-        </div>
-      </CardContent>
-    </Card>
-  );
 
   return (
     <div className={cn('relative w-full', className)}>
@@ -197,9 +169,7 @@ export default function SlidingCard({
               key={item.id}
               className="pl-2 sm:pl-3 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
             >
-              {type === 'project'
-                ? renderProjectCard(item as Project)
-                : renderBlogCard(item as BlogPost)}
+              {renderProjectCard(item)}
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -219,7 +189,7 @@ export default function SlidingCard({
               'h-1.5 rounded-full transition-all duration-300',
               current === index + 1 ? 'bg-blue-600 w-4' : 'bg-gray-600 w-1.5'
             )}
-            aria-label={`Go to ${type} ${index + 1}`}
+            aria-label={`Go to project ${index + 1}`}
           />
         ))}
       </div>
