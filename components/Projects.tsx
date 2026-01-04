@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import SlidingCard from '@/components/ui/SlidingCard';
-import { projects } from '@/lib/data';
+import SlidingCard from "@/components/ui/SlidingCard";
+import { projects } from "@/lib/data";
 
 export default function Projects() {
   return (
@@ -19,7 +19,6 @@ export default function Projects() {
 
         <SlidingCard
           items={projects}
-          type="project"
           autoSlide={true}
           slideInterval={4000}
         />
