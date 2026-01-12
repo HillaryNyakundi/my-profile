@@ -133,6 +133,26 @@ export const experiences: Experience[] = [
     ],
     technologies: ["React", "Python", "JavaScript", "Next.js", "Tailwind CSS"],
   },
+  {
+    id: 4,
+    title: "Frontend Developer (Freelance)",
+    company: "Karegivv",
+    period: "JAN 06 2024 - DEC 24 2024",
+    logo: "/images/dev.png",
+    responsibilities: [
+      "Managing project timelines, coordinating tasks, and ensuring timely delivery.",
+      "Designing and developing user interfaces with React.js and Next.js.",
+      "Building client-side logic, designed the user interfaces, and wrote clear documentation.",
+      "Communicating with clients to understand requirements, provide updates, and address feedback.",
+    ],
+    technologies: [
+      "React",
+      "JavaScript",
+      "Next.js",
+      "Tailwind CSS",
+      "Shadcn UI",
+    ],
+  },
 ];
 
 export const projects: Project[] = [
