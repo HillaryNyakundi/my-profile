@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FlipWords } from "./common/FlipWords";
+//import { FlipWords } from "./common/FlipWords";
 import TalkButton from "./ui/TalkButton";
 import GitHubButton from "./ui/GitHubButton";
 
@@ -41,25 +41,24 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
             className="text-center md:text-left w-full max-w-2xl px-4 sm:px-6 md:px-0"
           >
-            <div className="inline-flex flex-wrap justify-center md:justify-start">
+            <div className="inline-flex flex-wrap justify-center md:justify-start gap-2 md:gap-4">
               <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
                 Meet!
               </p>
-              <FlipWords
-                words={["Hillary Nyakundi.", "@hillarynyakundi."]}
-                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-500"
-              />
+              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-500">
+                Hillary Nyakundi.
+              </span>
             </div>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mt-4 mb-4">
               A{" "}
               <span className="text-blue-500 font-semibold">
-                Software Engineer(Frontend).
+                Software Engineer | Front-end.
               </span>{" "}
-              based in Nairobi, Kenya.
+              Based in Nairobi, Kenya.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-4">
-              I Work towards creating software that makes life easier and more
-              meaningful.
+              I build scalable, cross-platform web application solutions with 3
+              years of production experience.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-6 sm:mb-8">
               I am available for <span className="text-white">freelancing</span>{" "}

@@ -19,6 +19,7 @@ import {
   SiTypescript,
   SiUbuntu,
   SiKotlin,
+  SiDigitalocean,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import type { Experience, Project, Service, SkillCategory } from "@/types";
@@ -48,7 +49,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
       { name: "Express.js", icon: SiExpress, color: "#FFFFFF" },
-      { name: "Python", icon: SiPython, color: "#FFFFFF" },
+      { name: "Python", icon: SiPython, color: "#3776AB" },
     ],
   },
   {
@@ -72,6 +73,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Docker", icon: SiDocker, color: "#2496ED" },
       { name: "AWS", icon: SiAmazon, color: "#FF9900" },
+      { name: "Digital Ocean", icon: SiDigitalocean, color: "#0080FF" },
       { name: "Git", icon: SiGit, color: "#F05032" },
       { name: "GitHub", icon: SiGithub, color: "#FFFFFF" },
       { name: "Ubuntu", icon: SiUbuntu, color: "#E95420" },
@@ -94,6 +96,27 @@ export const experiences: Experience[] = [
   {
     id: 1,
     title: "Frontend Developer (Contract)",
+    company: "VisioRad AI",
+    period: "MAR 27 2025 - DEC 5 2025",
+    logo: "/images/dev.png",
+    responsibilities: [
+      "Designed, built, and maintained React/TypeScript components using Next.js App Router and serverless functions for edge-rendering pages.",
+      "Crafted polished UIs with TailwindCSS and Shadcn UI, ensuring responsive design and accessibility compliance.",
+      "Set up and monitor automated Vercel deployments linked to GitHub pull requests(CI/CD).",
+      "Collaborated with designers to translate Figma mocks into production‐ready code, iterating based on analytics and user feedback.",
+      "Worked with backend developers to integrate applications with RESTful APIs and third-party APIs for seamless data exchange.",
+    ],
+    technologies: [
+      "React",
+      "Typescript",
+      "JavaScript",
+      "Next.js",
+      "Tailwind CSS",
+    ],
+  },
+  {
+    id: 2,
+    title: "Frontend Developer (Freelance)",
     company: "Sentiint.ai",
     period: "FEB 03 2024 - DEC 31 2024",
     logo: "/images/dev.png",
@@ -114,28 +137,27 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    id: 2,
-    title: "Frontend Developer (Contract)",
-    company: "VisioRad AI",
-    period: "MAR 27 2025 - NOV 5 2025",
+    id: 3,
+    title: "Frontend Developer (Freelance)",
+    company: "Karegivv",
+    period: "JAN 06 2024 - DEC 24 2024",
     logo: "/images/dev.png",
     responsibilities: [
-      "Designed, built, and maintained React/TypeScript components using Next.js App Router and serverless functions for edge-rendering pages.",
-      "Crafted polished UIs with TailwindCSS and Shadcn UI, ensuring responsive design and accessibility compliance.",
-      "Set up and monitor automated Vercel deployments linked to GitHub pull requests(CI/CD).",
-      "Collaborated with designers to translate Figma mocks into production‐ready code, iterating based on analytics and user feedback.",
-      "Worked with backend developers to integrate applications with RESTful APIs and third-party APIs for seamless data exchange.",
+      "Managing project timelines, coordinating tasks, and ensuring timely delivery.",
+      "Designing and developing user interfaces with React.js and Next.js.",
+      "Building client-side logic, designed the user interfaces, and wrote clear documentation.",
+      "Communicating with clients to understand requirements, provide updates, and address feedback.",
     ],
     technologies: [
       "React",
-      "Typescript",
       "JavaScript",
       "Next.js",
       "Tailwind CSS",
+      "Shadcn UI",
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Frontend Developer Intern (Contract)",
     company: "Lupleg LLC",
     period: "AUG 06 2023 - DEC 24 2023",
@@ -150,26 +172,6 @@ export const experiences: Experience[] = [
     technologies: [
       "React",
       "Typescript",
-      "JavaScript",
-      "Next.js",
-      "Tailwind CSS",
-      "Shadcn UI",
-    ],
-  },
-  {
-    id: 4,
-    title: "Frontend Developer (Freelance)",
-    company: "Karegivv",
-    period: "JAN 06 2024 - DEC 24 2024",
-    logo: "/images/dev.png",
-    responsibilities: [
-      "Managing project timelines, coordinating tasks, and ensuring timely delivery.",
-      "Designing and developing user interfaces with React.js and Next.js.",
-      "Building client-side logic, designed the user interfaces, and wrote clear documentation.",
-      "Communicating with clients to understand requirements, provide updates, and address feedback.",
-    ],
-    technologies: [
-      "React",
       "JavaScript",
       "Next.js",
       "Tailwind CSS",

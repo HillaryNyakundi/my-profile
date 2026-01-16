@@ -1,14 +1,12 @@
-'use client';
+"use client";
 
-import FloatingNavbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-//import About from '@/components/About';
-import Experience from '@/components/Experience';
-import Projects from '@/components/Projects';
-import Skills from '@/components/Skills';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
-import Services from '@/components/Services';
+import FloatingNavbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Experience from "@/components/Experience";
+import Skills from "@/components/Skills";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import Services from "@/components/Services";
 
 export default function Home() {
   return (
@@ -19,7 +17,6 @@ export default function Home() {
         <Services />
         <Skills />
         <Experience />
-        <Projects />
         <Contact />
       </main>
       <Footer />
