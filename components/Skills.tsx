@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { skillCategories } from '@/lib/data';
-import { Brain, Handshake, BarChart3 } from 'lucide-react';
+import { motion } from "framer-motion";
+import { skillCategories } from "@/lib/data";
+import { Brain, Handshake, BarChart3 } from "lucide-react";
 
 const customIcons = {
-  'Problem Solving': Brain,
+  "Problem Solving": Brain,
   Collaboration: Handshake,
-  'Analytical Skills': BarChart3,
+  "Analytical Skills": BarChart3,
 };
 
 export default function Skills() {
@@ -21,7 +21,7 @@ export default function Skills() {
           className="text-center mb-8 sm:mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
-            My Skills
+            Tech Stack
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-blue-600 mx-auto" />
           <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base">
@@ -46,7 +46,8 @@ export default function Skills() {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
                 {category.skills.map((skill, skillIndex) => {
                   const Icon =
-                    customIcons[skill.name as keyof typeof customIcons] || skill.icon;
+                    customIcons[skill.name as keyof typeof customIcons] ||
+                    skill.icon;
                   const isCustomIcon = skill.name in customIcons;
 
                   return (
@@ -56,7 +57,7 @@ export default function Skills() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{
                         delay: categoryIndex * 0.1 + skillIndex * 0.05,
-                        type: 'spring',
+                        type: "spring",
                         stiffness: 260,
                         damping: 20,
                       }}
@@ -67,7 +68,9 @@ export default function Skills() {
                       <div className="relative">
                         <Icon
                           size={20}
-                          style={{ color: isCustomIcon ? '#FFFFFF' : skill.color }}
+                          style={{
+                            color: isCustomIcon ? "#FFFFFF" : skill.color,
+                          }}
                           className="mb-1 sm:mb-2 group-hover:scale-110 transition-transform"
                         />
                       </div>
