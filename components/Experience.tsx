@@ -59,7 +59,7 @@ export default function Experience() {
         {/* Download Resume Button */}
         <div className="flex justify-center mt-10">
           <Link
-            href="/resume.pdf"
+            href="/Hillary-Nyakundi-Maranga-Resume.pdf"
             download
             className="group relative inline-flex items-center gap-2 px-6 py-3 text-white font-medium rounded-lg overflow-hidden border border-blue-600"
           >
