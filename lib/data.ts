@@ -49,7 +49,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
       { name: "Express.js", icon: SiExpress, color: "#FFFFFF" },
-      { name: "Python", icon: SiPython, color: "#3776AB" },
+      { name: "Python", icon: SiPython, color: "#FFFFFF" },
     ],
   },
   {
