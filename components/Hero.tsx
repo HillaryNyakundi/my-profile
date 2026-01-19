@@ -57,8 +57,8 @@ export default function Hero() {
               Based in Nairobi, Kenya.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-4">
-              I build scalable, cross-platform web application solutions with 3
-              years of production experience.
+              I build scalable web application solutions with 3 years of
+              production experience.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-6 sm:mb-8">
               I am available for <span className="text-white">freelancing</span>{" "}
