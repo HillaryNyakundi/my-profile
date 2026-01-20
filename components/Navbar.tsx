@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { User, Briefcase, Mail, Sparkles, CircuitBoard } from 'lucide-react';
+import { User, Briefcase, Code, Mail, Sparkles, CircuitBoard } from 'lucide-react';
 
 const navItems = [
   { id: 'hero', icon: User, label: 'About' },
   { id: 'services', icon: Briefcase, label: 'Services' },
   { id: 'skills', icon: Sparkles, label: 'Skills' },
   { id: 'experience', icon: CircuitBoard, label: 'Experience' },
+  { id: 'projects', icon: Code, label: 'Projects' },
   { id: 'contact', icon: Mail, label: 'Contact' },
 ];
 
