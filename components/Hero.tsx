@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-//import { FlipWords } from "./common/FlipWords";
 import TalkButton from "./ui/TalkButton";
 import GitHubButton from "./ui/GitHubButton";
 
@@ -52,13 +51,13 @@ export default function Hero() {
             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mt-4 mb-4">
               A{" "}
               <span className="text-blue-500 font-semibold">
-                Software Engineer | Front-end.
+                Full-Stack Software Engineer.
               </span>{" "}
               Based in Nairobi, Kenya.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-4">
-              I build scalable web application solutions with 3 years of
-              production experience.
+              I build scalable Mobile and Web application solutions with 3 years
+              of production experience.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-6 sm:mb-8">
               I am available for <span className="text-white">freelancing</span>{" "}
