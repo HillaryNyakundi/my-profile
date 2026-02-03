@@ -19,7 +19,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="flex-shrink-0"
           >
-            <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 bg-gray-800">
+            <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-gray-800">
               <Image
                 src="/Hillary.jpeg"
                 alt="Hillary Nyakundi"
