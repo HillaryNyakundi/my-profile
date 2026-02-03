@@ -21,7 +21,7 @@ export default function Hero() {
           >
             <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-blue-600 bg-gray-800">
               <Image
-                src="/headshot.jpg"
+                src="/Hillary.jpeg"
                 alt="Hillary Nyakundi"
                 width={320}
                 height={320}
