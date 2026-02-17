@@ -51,7 +51,7 @@ export default function Hero() {
             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mt-4 mb-4">
               A{" "}
               <span className="text-blue-500 font-semibold">
-                Full-Stack Software Engineer.
+                Software Engineer.
               </span>{" "}
               Based in Nairobi, Kenya.
             </p>

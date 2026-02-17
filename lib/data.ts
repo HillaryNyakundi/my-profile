@@ -97,7 +97,7 @@ export const experiences: Experience[] = [
     id: 1,
     title: "Frontend Developer (Contract)",
     company: "VisioRad AI",
-    period: "MAR 27 2025 - DEC 5 2025",
+    period: "FEB 2025 - DEC 2025",
     logo: "/images/dev.png",
     responsibilities: [
       "Designed, built, and maintained React/TypeScript components using Next.js App Router and serverless functions for edge-rendering pages.",
@@ -122,7 +122,7 @@ export const experiences: Experience[] = [
     id: 2,
     title: "Frontend Developer (Freelance)",
     company: "Sentiint.ai",
-    period: "FEB 03 2024 - DEC 31 2024",
+    period: "JAN 2024 - NOV 2024",
     logo: "/images/dev.png",
     responsibilities: [
       "Developed, optimized, and maintained responsive web applications, ensuring 100% compatibility across major browsers and devices using React, Next.js, Typescript, and Context API.",
@@ -147,7 +147,7 @@ export const experiences: Experience[] = [
     id: 3,
     title: "Frontend Developer (Freelance)",
     company: "Karegivv",
-    period: "JAN 06 2024 - DEC 24 2024",
+    period: "MAR 2023 - DEC 2023",
     logo: "/images/dev.png",
     responsibilities: [
       "Designed, developed, and maintained scalable, reusable, and high-quality frontend applications.",
@@ -172,7 +172,7 @@ export const experiences: Experience[] = [
     id: 4,
     title: "Frontend Developer Intern (Contract)",
     company: "Lupleg LLC",
-    period: "AUG 06 2023 - DEC 24 2023",
+    period: "NOV 2022 - FEB 2023",
     logo: "/images/dev.png",
     responsibilities: [
       "Wrote clean, scalable, and maintainable React, ES6+ JavaScript and TypeScript code following best practices.",
