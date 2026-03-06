@@ -2,6 +2,7 @@ import {
   SiHtml5,
   SiCss3,
   SiPython,
+  SiDjango,
   SiReact,
   SiNextdotjs,
   SiTailwindcss,
@@ -40,7 +41,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "React.js", icon: SiReact, color: "#61DAFB" },
       { name: "HTML", icon: SiHtml5, color: "#E34F26" },
       { name: "CSS", icon: SiCss3, color: "#1572B6" },
-      { name: "Tailwindcss", icon: SiTailwindcss, color: "#CC6699" },
+      { name: "Tailwindcss", icon: SiTailwindcss, color: "#06B6D4" },
       { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
     ],
   },
@@ -50,6 +51,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
       { name: "Express.js", icon: SiExpress, color: "#FFFFFF" },
       { name: "Python", icon: SiPython, color: "#FFFFFF" },
+      { name: "Django", icon: SiDjango, color: "#44B78B" },
     ],
   },
   {
@@ -97,6 +99,7 @@ export const experiences: Experience[] = [
     id: 1,
     title: "Frontend Developer (Contract)",
     company: "VisioRad AI",
+    location: "Ghana, Accra",
     period: "FEB 2025 - DEC 2025",
     logo: "/images/dev.png",
     responsibilities: [
@@ -122,6 +125,7 @@ export const experiences: Experience[] = [
     id: 2,
     title: "Frontend Developer (Freelance)",
     company: "Sentiint.ai",
+    location: "USA",
     period: "JAN 2024 - NOV 2024",
     logo: "/images/dev.png",
     responsibilities: [
@@ -147,6 +151,7 @@ export const experiences: Experience[] = [
     id: 3,
     title: "Frontend Developer (Freelance)",
     company: "Karegivv",
+    location: "Nairobi, Kenya",
     period: "MAR 2023 - DEC 2023",
     logo: "/images/dev.png",
     responsibilities: [
@@ -172,6 +177,7 @@ export const experiences: Experience[] = [
     id: 4,
     title: "Frontend Developer Intern (Contract)",
     company: "Lupleg LLC",
+    location: "Lusaka, Zambia",
     period: "NOV 2022 - FEB 2023",
     logo: "/images/dev.png",
     responsibilities: [
@@ -230,11 +236,9 @@ export const services: Service[] = [
     description:
       "I create captivating mobile apps from concept to deployment for iOS and Android. Using cutting-edge technologies, I ensure seamless performance, intuitive interfaces, and robust functionality that align with your business goals. Enjoy a flawless user experience and outstanding results.",
     icons: [
-      { icon: Smartphone, color: "#FFFFFF" },
-      { icon: SiReact, color: "#61DAFB" },
+      { icon: SiKotlin, color: "#7F52FF" },
       { icon: SiFlutter, color: "#02569B" },
       { icon: TbBrandReactNative, color: "#61DAFB" },
-      { icon: SiFirebase, color: "#FFCA28" },
     ],
   },
   {
@@ -242,7 +246,6 @@ export const services: Service[] = [
     description:
       "I deliver stunning, user-friendly websites to establish your online presence. From simple sites to complex e-commerce platforms, I provide tailored solutions using the latest frameworks and technologies for a seamless, responsive, and SEO-friendly browsing experience. Enhance your online identity with quality.",
     icons: [
-      { icon: Globe, color: "#FFFFFF" },
       { icon: SiReact, color: "#61DAFB" },
       { icon: SiNodedotjs, color: "#339933" },
       { icon: SiHtml5, color: "#E34F26" },
@@ -254,11 +257,9 @@ export const services: Service[] = [
     description:
       "I enhance digital applications with robust, scalable backend infrastructures. I develop efficient database structures, APIs, and configure servers for optimal performance, security, and scalability, ensuring your applications handle high traffic and complex data management seamlessly. Rely on strong backend solutions.",
     icons: [
-      { icon: Server, color: "#FFFFFF" },
       { icon: SiNodedotjs, color: "#339933" },
       { icon: SiExpress, color: "#FFFFFF" },
-      { icon: Database, color: "#FFFFFF" },
-      { icon: Cloud, color: "#FFFFFF" },
+      { icon: SiDjango, color: "#44B78B" },
     ],
   },
   {
@@ -269,7 +270,6 @@ export const services: Service[] = [
       { icon: Database, color: "#FFFFFF" },
       { icon: SiPostgresql, color: "#4169E1" },
       { icon: SiMongodb, color: "#47A248" },
-      { icon: Shield, color: "#FFFFFF" },
       { icon: Server, color: "#FFFFFF" },
     ],
   },
