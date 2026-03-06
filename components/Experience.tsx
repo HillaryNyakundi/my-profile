@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { experiences } from "@/lib/data";
-import { Download } from "lucide-react";
+import { Download, MapPin } from "lucide-react";
 import Link from "next/link";
 
 export default function Experience() {
@@ -32,6 +32,10 @@ export default function Experience() {
                         @ {item.company}
                       </span>
                     </h3>
+                    <p className="flex items-center gap-1 text-sm text-gray-400 mt-1">
+                      <MapPin className="size-3.5 text-blue-500" />
+                      {item.location}
+                    </p>
                   </div>
                   <p className="text-sm text-gray-400 whitespace-nowrap">
                     {item.period}
