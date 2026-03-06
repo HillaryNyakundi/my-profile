@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { User, Briefcase, Code, Mail, Sparkles, CircuitBoard } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { User, Briefcase, Mail, Sparkles, CircuitBoard } from "lucide-react";
 
 const navItems = [
-  { id: 'hero', icon: User, label: 'About' },
-  { id: 'services', icon: Briefcase, label: 'Services' },
-  { id: 'skills', icon: Sparkles, label: 'Skills' },
-  { id: 'experience', icon: CircuitBoard, label: 'Experience' },
-  { id: 'projects', icon: Code, label: 'Projects' },
-  { id: 'contact', icon: Mail, label: 'Contact' },
+  { id: "hero", icon: User, label: "About" },
+  { id: "services", icon: Briefcase, label: "Services" },
+  { id: "skills", icon: Sparkles, label: "Skills" },
+  { id: "experience", icon: CircuitBoard, label: "Experience" },
+  // { id: 'projects', icon: Code, label: 'Projects' },
+  { id: "contact", icon: Mail, label: "Contact" },
 ];
 
 export default function FloatingNavbar() {
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState("hero");
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   useEffect(() => {
@@ -31,7 +31,10 @@ export default function FloatingNavbar() {
         const element = section.element!;
         const { offsetTop, offsetHeight } = element;
 
-        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+        if (
+          scrollPosition >= offsetTop &&
+          scrollPosition < offsetTop + offsetHeight
+        ) {
           setActiveSection(section.id);
           break;
         }
@@ -42,10 +45,10 @@ export default function FloatingNavbar() {
     handleScroll();
 
     // Add scroll listener
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -58,7 +61,7 @@ export default function FloatingNavbar() {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
@@ -89,8 +92,8 @@ export default function FloatingNavbar() {
                   p-2.5 sm:p-3 
                   ${
                     isActive
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-800'
+                      ? "bg-blue-600 text-white"
+                      : "text-gray-400 hover:text-white hover:bg-gray-800"
                   }
                 `}
                 aria-label={item.label}

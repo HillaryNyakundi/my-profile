@@ -17,7 +17,7 @@ export default function Hero() {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex-shrink-0"
+            className="shrink-0"
           >
             <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-gray-800">
               <Image
@@ -64,10 +64,10 @@ export default function Hero() {
               or <span className="text-white">full-time</span> job.
             </p>
             <div className="flex flex-row gap-3 sm:gap-4 mb-3 justify-center md:justify-start w-full">
-              <div className="flex-1 min-w-0 max-w-[10rem] sm:max-w-none sm:flex-initial">
+              <div className="flex-1 min-w-0 max-w-40 sm:max-w-none sm:flex-initial">
                 <TalkButton />
               </div>
-              <div className="flex-1 min-w-0 max-w-[10rem] sm:max-w-none sm:flex-initial">
+              <div className="flex-1 min-w-0 max-w-40 sm:max-w-none sm:flex-initial">
                 <GitHubButton />
               </div>
             </div>
