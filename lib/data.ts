@@ -16,7 +16,6 @@ import {
   SiAmazon,
   SiFlutter,
   SiMysql,
-  SiFirebase,
   SiTypescript,
   SiUbuntu,
   SiKotlin,
@@ -24,14 +23,7 @@ import {
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import type { Experience, Project, Service, SkillCategory } from "@/types";
-import {
-  Cloud,
-  Database,
-  Globe,
-  Server,
-  Shield,
-  Smartphone,
-} from "lucide-react";
+import { Database, Server } from "lucide-react";
 
 export const skillCategories: SkillCategory[] = [
   {
