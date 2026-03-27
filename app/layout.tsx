@@ -6,7 +6,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Hillary Nyakundi',
+  title: 'Hillary Nyakundi | Software Engineer.',
   description: 'Software Engineer based in Nairobi, Kenya',
 };
 
