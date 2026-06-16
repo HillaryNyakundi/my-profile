@@ -2,8 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { experiences } from "@/lib/data";
-import { Download, MapPin } from "lucide-react";
-import Link from "next/link";
+import { MapPin } from "lucide-react";
 
 export default function Experience() {
   return (
@@ -58,19 +57,6 @@ export default function Experience() {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Download Resume Button */}
-        <div className="flex justify-center mt-10">
-          <Link
-            href="/Hillary-Nyakundi-Maranga-Resume.pdf"
-            download
-            className="group relative inline-flex items-center gap-2 px-6 py-3 text-white font-medium rounded-lg overflow-hidden border border-blue-600"
-          >
-            <span className="absolute inset-0 bg-blue-600 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
-            <Download className="w-5 h-5 relative z-10" />
-            <span className="relative z-10">Download Resume</span>
-          </Link>
         </div>
       </div>
     </section>
