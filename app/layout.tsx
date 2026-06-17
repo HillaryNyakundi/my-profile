@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="mx-auto w-full max-w-7xl px-6">{children}</main>
+          <main className="mx-auto w-full max-w-7xl px-5 sm:px-6">{children}</main>
           <Analytics />
         </ThemeProvider>
       </body>

@@ -23,7 +23,7 @@ export default function ExperienceList({ items }: { items: Experience[] }) {
           >
             <AccordionTrigger className="cursor-pointer py-6 hover:no-underline">
               <div className="flex-1">
-                <h3 className="text-xl font-semibold sm:text-2xl">{job.title}</h3>
+                <h3 className="text-lg font-semibold sm:text-xl md:text-2xl">{job.title}</h3>
                 <p className="mt-2 font-sans text-sm text-subtle">{job.company}</p>
                 <p className="mt-1 font-sans text-sm text-subtle">
                   {label} <span className="opacity-70">({duration})</span>
