@@ -21,16 +21,16 @@ export default function ContactPage() {
     <>
       <QuoteBanner />
 
-      <div className="grid gap-12 py-12 md:grid-cols-2 md:gap-16">
+      <div className="grid gap-8 py-10 md:grid-cols-2 md:gap-16 md:py-12">
         <div>
-          <h1 className="font-display text-6xl tracking-tight sm:text-7xl">
+          <h1 className="font-display text-5xl tracking-tight sm:text-6xl md:text-7xl">
             CONTACT
           </h1>
           <p className="mt-4 text-subtle">Reach out directly or follow my work.</p>
         </div>
 
         <div>
-          <ul className="space-y-5">
+          <ul className="space-y-4 sm:space-y-5">
             {channels.map((c) => (
               <li key={c.label}>
                 <a
@@ -38,7 +38,7 @@ export default function ContactPage() {
                   {...(c.external
                     ? { target: '_blank', rel: 'noopener noreferrer' }
                     : {})}
-                  className="text-xl underline underline-offset-4 transition-colors hover:text-accent sm:text-2xl"
+                  className="text-lg underline underline-offset-4 transition-colors hover:text-accent sm:text-xl md:text-2xl"
                 >
                   {c.label}
                 </a>
@@ -46,7 +46,7 @@ export default function ContactPage() {
             ))}
           </ul>
 
-          <p className="mt-10 font-sans text-sm text-subtle">
+          <p className="mt-8 font-sans text-sm text-subtle sm:mt-10">
             Top Skills: {Strings.topSkills}
           </p>
         </div>

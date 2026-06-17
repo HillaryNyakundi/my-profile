@@ -16,16 +16,16 @@ export default function WorkPage() {
     <>
       <QuoteBanner />
 
-      <div className="grid gap-12 py-12 md:grid-cols-[18rem_1fr] md:gap-16">
+      <div className="grid gap-10 py-10 md:grid-cols-[18rem_1fr] md:gap-16 md:py-12">
         <aside className="md:sticky md:top-12 md:self-start">
           <Image
             src="/Hillary.jpeg"
             alt={Strings.fullName}
             width={120}
             height={120}
-            className="h-28 w-28 rounded-full object-cover"
+            className="h-24 w-24 rounded-full object-cover sm:h-28 sm:w-28"
           />
-          <h1 className="mt-6 font-display text-5xl leading-[0.9] tracking-tight sm:text-6xl">
+          <h1 className="mt-6 font-display text-4xl leading-[0.9] tracking-tight sm:text-5xl md:text-6xl">
             WORK
             <br />
             EXPERIENCE

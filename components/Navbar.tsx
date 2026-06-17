@@ -10,22 +10,22 @@ const links = [
 
 export default function Navbar() {
   return (
-    <header className="mx-auto w-full max-w-7xl px-6 pt-8">
-      <div className="flex items-center justify-between border-b border-line pb-5">
-        <Link href="/" className="group flex items-center gap-3">
+    <header className="mx-auto w-full max-w-7xl px-5 pt-6 sm:px-6 sm:pt-8">
+      <div className="flex items-center justify-between border-b border-line pb-4 sm:pb-5">
+        <Link href="/" className="group flex min-w-0 items-center gap-2.5 sm:gap-3">
           <Image
             src="/Hillary.jpeg"
             alt={Strings.fullName}
             width={36}
             height={36}
-            className="h-9 w-9 rounded-full object-cover"
+            className="h-8 w-8 shrink-0 rounded-full object-cover sm:h-9 sm:w-9"
           />
-          <span className="text-ink text-sm md:text-base transition-colors group-hover:text-ink hover:underline">
+          <span className="truncate text-ink text-sm md:text-base transition-colors group-hover:text-ink hover:underline">
             {Strings.shortName}
           </span>
         </Link>
 
-        <nav className="flex items-center gap-5 text-sm md:text-base sm:gap-6">
+        <nav className="flex shrink-0 items-center gap-4 text-sm md:text-base sm:gap-6">
           {links.map((link) => (
             <Link
               key={link.href}

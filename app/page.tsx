@@ -3,12 +3,12 @@ import Strings from '@/constants/strings';
 
 export default function Home() {
   return (
-    <section className="mx-auto max-w-2xl py-20 sm:py-28">
-      <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+    <section className="mx-auto max-w-2xl py-12 sm:py-20 md:py-28">
+      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
         {Strings.fullName}
       </h1>
 
-      <div className="mt-8 space-y-6 text-lg leading-relaxed text-ink/90">
+      <div className="mt-6 space-y-5 text-base leading-relaxed text-ink/90 sm:mt-8 sm:space-y-6 sm:text-lg">
         <p>
           I&apos;m a software engineer who builds web and mobile products end to
           end. I care about clean interfaces, practical architecture, and
