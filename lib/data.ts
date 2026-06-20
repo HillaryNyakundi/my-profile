@@ -42,10 +42,10 @@ export const experiences: Experience[] = [
   },
   {
     id: 2,
-    title: "Frontend Developer (Freelance)",
-    company: "Sentiint.ai",
-    location: "USA",
-    period: "JAN 2024 - NOV 2024",
+    title: "Software Developer(Self-Employed) ",
+    company: "Mor Insight Analytics",
+    location: "Kenya",
+    period: "JAN 2025 - PRESENT",
     responsibilities: [
       "Developed, optimized, and maintained responsive web applications, ensuring 100% compatibility across major browsers and devices using React, Next.js, Typescript, and Context API.",
       "Assisted in developing deployment strategies to AWS and automation scripts.",
@@ -62,7 +62,9 @@ export const experiences: Experience[] = [
       "React",
       "Next.js",
       "Tailwind CSS",
-      "Redux Toolkit",
+      "Tanstack",
+      "Paystack- Mpesa",
+      "Django-Python"
     ],
   },
   {
