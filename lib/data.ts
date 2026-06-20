@@ -69,7 +69,7 @@ export const experiences: Experience[] = [
   },
   {
     id: 3,
-    title: "Frontend Developer (Freelance)",
+    title: "Frontend Developer (Contract)",
     company: "Karegivv",
     location: "Nairobi, Kenya",
     period: "FEB 2024 - DEC 2024",
