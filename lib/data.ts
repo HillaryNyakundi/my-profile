@@ -42,7 +42,7 @@ export const experiences: Experience[] = [
   },
   {
     id: 2,
-    title: "Software Developer(Self-Employed) ",
+    title: "Software Developer (Self-Employed) ",
     company: "Mor Insight Analytics",
     location: "Kenya",
     period: "JAN 2025 - PRESENT",
@@ -69,10 +69,10 @@ export const experiences: Experience[] = [
   },
   {
     id: 3,
-    title: "Frontend Developer (Freelance)",
+    title: "Frontend Developer (Contract)",
     company: "Karegivv",
     location: "Nairobi, Kenya",
-    period: "MAR 2023 - DEC 2023",
+    period: "FEB 2024 - DEC 2024",
     responsibilities: [
       "Designed, developed, and maintained scalable, reusable, and high-quality frontend applications.",
       "Ensured application reliability, security, and performance across different platforms and devices.",
@@ -97,7 +97,7 @@ export const experiences: Experience[] = [
     title: "Frontend Developer (Intern)",
     company: "Lupleg LLC",
     location: "Lusaka, Zambia",
-    period: "NOV 2022 - FEB 2023",
+    period: "NOV 2023 - FEB 2024",
     responsibilities: [
       "Wrote clean, scalable, and maintainable React, ES6+ JavaScript and TypeScript code following best practices.",
       "Worked closely with backend developers to ensure seamless communication between frontend and backend systems.",
