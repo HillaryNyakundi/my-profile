@@ -97,7 +97,7 @@ export const experiences: Experience[] = [
     title: "Frontend Developer (Intern)",
     company: "Lupleg LLC",
     location: "Lusaka, Zambia",
-    period: "SEP 2023 - FEB 2024",
+    period: "SEP 2023 - JAN 2024",
     responsibilities: [
       "Wrote clean, scalable, and maintainable React, ES6+ JavaScript and TypeScript code following best practices.",
       "Worked closely with backend developers to ensure seamless communication between frontend and backend systems.",
