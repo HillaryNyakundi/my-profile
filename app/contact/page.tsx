@@ -35,7 +35,7 @@ export default function ContactPage() {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
-          <p className="absolute bottom-8 left-8 font-display text-4xl leading-[0.95] tracking-tight text-white/90">
+          <p className="absolute bottom-8 left-8 font-display text-4xl leading-[0.95] tracking-tight text-white/90 xl:text-5xl">
             SAY HELLO
             <br />
             BEFORE
@@ -46,13 +46,13 @@ export default function ContactPage() {
       </aside>
 
       {/* Content */}
-      <div className="space-y-12">
+      <div className="space-y-10 sm:space-y-12">
         <header>
           <p className={eyebrow}>Contact</p>
-          <h1 className="mt-5 text-4xl font-medium leading-[1.1] tracking-tight sm:text-5xl">
+          <h1 className="mt-4 text-3xl font-medium leading-[1.15] tracking-tight sm:mt-5 sm:text-4xl sm:leading-[1.1] md:text-5xl">
             Let&apos;s transform your idea into a tangible product.
           </h1>
-          <p className="mt-5 max-w-md leading-relaxed text-subtle">
+          <p className="mt-4 max-w-md text-base leading-relaxed text-subtle sm:mt-5 sm:text-lg">
             Tell me what you&apos;re working on.
           </p>
         </header>
@@ -73,7 +73,7 @@ export default function ContactPage() {
           <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
             <a
               href={Strings.primaryEmailLink}
-              className="break-all text-2xl tracking-tight transition-colors hover:text-highlight sm:text-3xl"
+              className="break-all text-xl tracking-tight transition-colors hover:text-highlight sm:text-2xl md:text-3xl"
             >
               {Strings.primaryEmail}
             </a>
