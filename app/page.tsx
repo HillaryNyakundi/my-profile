@@ -22,11 +22,11 @@ export default function Home() {
         </p>
         <p>
           You can see my{' '}
-          <Link href="/work" className="underline underline-offset-4 hover:text-accent">
+          <Link href="/work" className="underline underline-offset-4 hover:text-highlight">
             work
           </Link>
           , or{' '}
-          <Link href="/contact" className="underline underline-offset-4 hover:text-accent">
+          <Link href="/contact" className="underline underline-offset-4 hover:text-highlight">
             reach out
           </Link>
           .
