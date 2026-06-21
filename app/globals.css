@@ -4,25 +4,53 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* site palette */
   --color-page: var(--page);
   --color-ink: var(--ink);
   --color-subtle: var(--subtle);
   --color-line: var(--line);
-  --color-accent: var(--accent);
-  /* shadcn compatibility tokens */
-  --color-border: var(--line);
-  --color-ring: var(--subtle);
+  --color-highlight: var(--accent);
+
+  /* shadcn semantic tokens (mapped to the site palette) */
+  --color-background: var(--page);
+  --color-foreground: var(--ink);
+  --color-card: var(--page);
+  --color-card-foreground: var(--ink);
+  --color-popover: var(--page);
+  --color-popover-foreground: var(--ink);
+  --color-primary: var(--ink);
+  --color-primary-foreground: var(--page);
+  --color-secondary: var(--muted-bg);
+  --color-secondary-foreground: var(--ink);
+  --color-muted: var(--muted-bg);
   --color-muted-foreground: var(--subtle);
+  --color-accent: var(--muted-bg);
+  --color-accent-foreground: var(--ink);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--line);
+  --color-input: var(--line);
+  --color-ring: var(--subtle);
+
+  /* radius scale (shadcn convention) */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
   --font-sans: var(--font-inter);
-  --font-serif: var(--font-lora);
   --font-display: var(--font-anton);
 }
 
 :root {
+  --radius: 0.625rem;
   --page: #faf9f7;
   --ink: #1c1917;
   --subtle: #6b6660;
   --line: #e6e3df;
+  --muted-bg: #f0eeea;
+  --destructive: #dc2626;
+  --destructive-foreground: #fafafa;
   --accent: #2563eb;
 }
 
@@ -31,7 +59,17 @@
   --ink: #ededed;
   --subtle: #9a9a9a;
   --line: #1f1f1f;
+  --muted-bg: #1a1a1a;
+  --destructive: #ef4444;
   --accent: #38bdf8;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-border);
+  }
 }
 
 html {
@@ -41,7 +79,7 @@ html {
 body {
   background-color: var(--page);
   color: var(--ink);
-  font-family: var(--font-serif), Georgia, 'Times New Roman', serif;
+  font-family: var(--font-sans), 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background-color 0.3s ease, color 0.3s ease;

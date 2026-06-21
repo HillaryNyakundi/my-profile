@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { name, email, subject, message } = validationResult.data;
+    const { name, email, message, projectType, budget } = validationResult.data;
 
     // Check environment variables
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
     const mailToOwner = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
-      subject: `Portfolio Contact: ${subject}`,
+      subject: `New project inquiry from ${name}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -86,8 +86,12 @@ export async function POST(req: NextRequest) {
                   <div class="value">${email}</div>
                 </div>
                 <div class="field">
-                  <div class="label">Subject:</div>
-                  <div class="value">${subject}</div>
+                  <div class="label">Project type:</div>
+                  <div class="value">${projectType || 'Not specified'}</div>
+                </div>
+                <div class="field">
+                  <div class="label">Budget:</div>
+                  <div class="value">${budget || 'Not specified'}</div>
                 </div>
                 <div class="field">
                   <div class="label">Message:</div>
@@ -131,7 +135,9 @@ export async function POST(req: NextRequest) {
                 <p>Thank you for contacting me through my portfolio website. I've received your message and will get back to you as soon as possible.</p>
                 <p>Here's a copy of your message:</p>
                 <div style="background-color: #f4f4f4; padding: 15px; margin: 20px 0; border-left: 4px solid #3b82f6;">
-                  <strong>Subject:</strong> ${subject}<br><br>
+                  ${projectType ? `<strong>Project type:</strong> ${projectType}<br>` : ''}
+                  ${budget ? `<strong>Budget:</strong> ${budget}<br>` : ''}
+                  <br>
                   <strong>Message:</strong><br>
                   ${message.replace(/\n/g, '<br>')}
                 </div>

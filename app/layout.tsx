@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter, Lora, Anton } from 'next/font/google';
+import { Inter, Anton } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { ThemeProvider } from '@/components/theme-provider';
 import Navbar from '@/components/Navbar';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const lora = Lora({ subsets: ['latin'], variable: '--font-lora' });
 const anton = Anton({ subsets: ['latin'], weight: '400', variable: '--font-anton' });
 
 export const metadata: Metadata = {
@@ -20,7 +19,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${lora.variable} ${anton.variable}`}
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${anton.variable}`}
     >
       <body>
         <ThemeProvider
