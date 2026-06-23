@@ -1,10 +1,14 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { ArrowUpRight, Download } from 'lucide-react';
 import QuoteBanner from '@/components/QuoteBanner';
 import ExperienceList from '@/components/ExperienceList';
+import { Button } from '@/components/ui/button';
 import { experiences } from '@/lib/data';
 import { totalExperience } from '@/lib/experience';
 import Strings from '@/constants/strings';
+
+const RESUME = '/Hillary-Nyakundi-Maranga-resume.pdf';
 
 export const metadata: Metadata = {
   title: 'Work | Hillary Nyakundi',
@@ -42,6 +46,31 @@ export default function WorkPage() {
         </aside>
 
         <ExperienceList items={experiences} />
+      </div>
+
+      {/* Résumé */}
+      <div className="flex flex-col items-start gap-5 border-t border-line py-12 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            Resume
+          </h2>
+          <p className="mt-2 text-subtle">
+            Prefer the one-pager? Grab a copy of my full Resume.
+          </p>
+        </div>
+        <div className="flex gap-3">
+          <Button asChild size="lg">
+            <a href={RESUME} target="_blank" rel="noopener noreferrer">
+              View Resume
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <a href={RESUME} download aria-label="Download résumé">
+              <Download className="h-4 w-4" />
+            </a>
+          </Button>
+        </div>
       </div>
     </>
   );
