@@ -91,7 +91,7 @@ export default function ContactPage() {
           <div>
             <p className={eyebrow}>Working with</p>
             <p className="mt-3 leading-relaxed text-subtle">
-              Founders and teams across Africa, the US, and Europe.
+              clients and software development teams across Africa, the US, and Europe.
             </p>
           </div>
         </div>

@@ -42,33 +42,6 @@ export const experiences: Experience[] = [
   },
   {
     id: 2,
-    title: "Software Developer (Self-Employed) ",
-    company: "Mor Insight Analytics",
-    location: "Kenya",
-    period: "JAN 2025 - PRESENT",
-    responsibilities: [
-      "Developed, optimized, and maintained responsive web applications, ensuring 100% compatibility across major browsers and devices using React, Next.js, Typescript, and Context API.",
-      "Assisted in developing deployment strategies to AWS and automation scripts.",
-      "Optimized web performance to maintain an optimal Lighthouse performance score above 90%.",
-      "Collaborated with UX/UI designers to transform wireframes and Figma prototypes into high-quality, interactive user interfaces and ensured 95% accuracy in translating designs into functional web pages.",
-      "Integrated and built on the design prototypes following the accessibility design principles (WCAG).",
-      "Addressed and resolved at least 95% of reported frontend issues within SLA using debugging tools such as DevTools and Lighthouse.",
-      "Engaged in code reviews and completed assigned development tasks within sprint deadlines.",
-      "Worked with backend developers to integrate applications with RESTful APIs and third-party APIs for seamless data exchange.",
-    ],
-    technologies: [
-      "TypeScript",
-      "JavaScript",
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Tanstack",
-      "Paystack- Mpesa",
-      "Django-Python"
-    ],
-  },
-  {
-    id: 3,
     title: "Frontend Developer (Contract)",
     company: "Karegivv",
     location: "Nairobi, Kenya",
@@ -93,7 +66,7 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    id: 4,
+    id: 3,
     title: "Frontend Developer (Intern)",
     company: "Lupleg LLC",
     location: "Lusaka, Zambia",
@@ -119,21 +92,12 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
-    id: 1,
-    title: "Inventory App",
-    description: "A dynamic inventory Application with CRUD functionalities",
-    image: "/images/projects/Invent.png",
-    technologies: ["React", "JavaScript", "CSS", "Python"],
-    github: "https://github.com/HillaryNyakundi/my-inventory",
-    demo: "https://my-inventory-six.vercel.app/",
-  },
-  {
     id: 2,
     title: "RwandAIR",
     description:
       "A landing page website for Rwanda air travel operations built",
-    image: "/images/projects/Rwanda.png",
-    technologies: ["PostgreSQL", "Express", "React", "Node.js"],
+    image: "/images/projects/rwanda.png",
+    technologies: ["PostgreSQL", "Express", "React", "Node.js", "NextJS", "Tailwindcss"],
     github: "https://github.com/HillaryNyakundi/rwandair-holidays",
     demo: "https://rwandair-holidays.vercel.app/",
   },
@@ -141,8 +105,8 @@ export const projects: Project[] = [
     id: 3,
     title: "Barcadi",
     description: "Cocktails store UI",
-    image: "/images/projects/Barcardi.png",
-    technologies: ["CSS", "Python", "React", "JavaScript", "HTML"],
+    image: "/images/projects/barcardi.png",
+    technologies: ["React", "NextJS","Tanstack", "Typescript", "Vite"],
     github: "https://github.com/HillaryNyakundi/bacardi",
     demo: "https://barcardi.vercel.app/",
   },
