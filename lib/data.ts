@@ -45,7 +45,7 @@ export const experiences: Experience[] = [
     title: "Frontend Developer (Contract)",
     company: "Karegivv",
     location: "Nairobi, Kenya",
-    period: "JAN 2024 - DEC 2024",
+    period: "MAR 2024 - DEC 2024",
     responsibilities: [
       "Designed, developed, and maintained scalable, reusable, and high-quality frontend applications.",
       "Ensured application reliability, security, and performance across different platforms and devices.",
@@ -70,7 +70,7 @@ export const experiences: Experience[] = [
     title: "Frontend Developer (Intern)",
     company: "Lupleg LLC",
     location: "Lusaka, Zambia",
-    period: "SEP 2023 - JAN 2024",
+    period: "JAN 2024 - MAR 2024",
     responsibilities: [
       "Wrote clean, scalable, and maintainable React, ES6+ JavaScript and TypeScript code following best practices.",
       "Worked closely with backend developers to ensure seamless communication between frontend and backend systems.",
