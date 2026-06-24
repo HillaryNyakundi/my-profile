@@ -8,7 +8,7 @@ import { experiences } from '@/lib/data';
 import { totalExperience } from '@/lib/experience';
 import Strings from '@/constants/strings';
 
-const RESUME = '/Hillary-Nyakundi-Maranga-Resume.pdf';
+const RESUME = '/Hillary_Nyakundi_Maranga_Resume.pdf';
 
 export const metadata: Metadata = {
   title: 'Work | Hillary Nyakundi',
