@@ -26,7 +26,7 @@ const socialLinks: FooterLink[] = [
 ];
 
 const elsewhereLinks: FooterLink[] = [
-  { label: 'Resume', href: '/Hillary-Nyakundi-Maranga-Resume.pdf' },
+  { label: 'Resume', href: '/Hillary_Nyakundi_Maranga_Resume.pdf' },
   { label: 'Book a call', href: Strings.calendyLink },
   { label: 'Email', href: Strings.primaryEmailLink },
 ];
