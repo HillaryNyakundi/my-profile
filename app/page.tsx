@@ -1,3 +1,14 @@
+export default function Home() {
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center text-center">
+      <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
+        Building, coming soon
+      </h1>
+    </div>
+  );
+}
+
+/* --- Original home page (restore when ready) ---
 import Link from 'next/link';
 
 const inlineLink =
@@ -6,7 +17,7 @@ const inlineLink =
 export default function Home() {
   return (
     <div className="py-12 sm:py-16">
-      {/* Hero */}
+      {/* Hero }
       <section className='max-w-3xl mx-auto'>
           <h1 className="text-3xl font-semibold leading-[1.15] tracking-tight sm:text-4xl md:text-5xl md:leading-[1.1]">
             I&apos;m Hillary Nyakundi. I live in Nairobi, where I build the
@@ -42,3 +53,4 @@ export default function Home() {
     </div>
   );
 }
+--- end original --- */

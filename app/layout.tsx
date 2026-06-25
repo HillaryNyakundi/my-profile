@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Inter, Anton } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { ThemeProvider } from '@/components/theme-provider';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+// import Navbar from '@/components/Navbar';
+// import Footer from '@/components/Footer';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -30,9 +30,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem={false}
           disableTransitionOnChange
         >
-          <Navbar />
+          {/* Hidden while in "coming soon" mode — restore when ready */}
+          {/* <Navbar /> */}
           <main className="mx-auto w-full max-w-7xl px-5 sm:px-6">{children}</main>
-          <Footer />
+          {/* <Footer /> */}
           <Analytics />
         </ThemeProvider>
       </body>
