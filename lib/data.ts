@@ -17,7 +17,7 @@ import { Database, Server } from "lucide-react";
 export const experiences: Experience[] = [
   {
     id: 1,
-    title: "Frontend Developer (Full-time)",
+    title: "Frontend Developer (Freelance)",
     company: "VisioRad AI",
     location: "Ghana, Accra",
     period: "FEB 2025 - PRESENT",

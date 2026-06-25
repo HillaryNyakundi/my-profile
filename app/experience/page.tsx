@@ -40,8 +40,7 @@ export default function WorkPage() {
             Total Experience: {totalExperience()}
           </p>
           <p className="mt-5 max-w-xs leading-relaxed text-ink/90">
-            I build web and mobile products, developer tooling, and systems where
-            software meets real-world constraints.
+            I build web and mobile products.
           </p>
         </aside>
 
