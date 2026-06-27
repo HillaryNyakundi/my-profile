@@ -1,10 +1,9 @@
-import { IconType } from "react-icons/lib";
+import { IconType } from 'react-icons/lib';
 
 export interface Experience {
   id: number;
   title: string;
   company: string;
-  location: string;
   period: string;
   logo?: string;
   responsibilities: string[];
