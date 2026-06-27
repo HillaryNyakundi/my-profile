@@ -8,31 +8,12 @@ class Strings {
   static githubUsername = 'HillaryNyakundi';
 
   static linkedIn = 'LinkedIn';
-  static linkedInLink = 'https://www.linkedin.com/in/nixrajput';
-  static linkedInUsername = 'nixrajput';
-
-  static instagram = 'Instagram';
-  static instagramLink = 'https://www.instagram.com/nixrajput';
-  static instagramUsername = 'nixrajput';
-
-  static twitter = 'Twitter';
-  static twitterLink = 'https://www.twitter.com/nixrajput07';
-  static twitterUsername = 'nixrajput07';
+  static linkedInLink = 'https://www.linkedin.com/in/hillarynyakundi';
+  static linkedInUsername = 'hillarynyakundi';
 
   static email = 'Email';
-  static primaryEmailLink = 'mailto:nkr.nikhil.nkr@gmail.com';
-  static primaryEmail = 'nkr.nikhil.nkr@gmail.com';
-
-  static buyMeACoffee = 'BuyMeACoffee';
-  static buyMeACoffeeLink = 'https://buymeacoffee.com/nixrajput';
-  static buyMeACoffeeUsername = 'nixrajput';
-
-  static koFi = 'Ko-Fi';
-  static koFiLink = 'https://ko-fi.com/nixrajput';
-  static koFiUsername = 'nixrajput';
-
-  static fullName = 'Nikhil Rajput';
-  static shortName = 'nixrajput';
+  static primaryEmailLink = 'mailto:hillarynyakundi66@gmail.com';
+  static primaryEmail = 'hillarynyakundi66@gmail.com';
 }
 
 export default Strings;

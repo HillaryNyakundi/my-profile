@@ -97,7 +97,7 @@ export const experiences: Experience[] = [
     id: 1,
     title: "Frontend Developer (Contract)",
     company: "VisioRad AI",
-    period: "FEB 2025 - DEC 2025",
+    period: "FEB 2025 - MAY 2026",
     logo: "/images/dev.png",
     responsibilities: [
       "Designed, built, and maintained React/TypeScript components using Next.js App Router and serverless functions for edge-rendering pages.",
@@ -121,33 +121,8 @@ export const experiences: Experience[] = [
   {
     id: 2,
     title: "Frontend Developer (Freelance)",
-    company: "Sentiint.ai",
-    period: "JAN 2024 - NOV 2024",
-    logo: "/images/dev.png",
-    responsibilities: [
-      "Developed, optimized, and maintained responsive web applications, ensuring 100% compatibility across major browsers and devices using React, Next.js, Typescript, and Context API.",
-      "Assisted in developing deployment strategies to AWS and automation scripts.",
-      "Optimized web performance to maintain an optimal Lighthouse performance score above 90%.",
-      "Collaborated with UX/UI designers to transform wireframes and Figma prototypes into high-quality, interactive user interfaces and ensured 95% accuracy in translating designs into functional web pages.",
-      "Integrated and built on the design prototypes following the accessibility design principles (WCAG).",
-      "Addressed and resolved at least 95% of reported frontend issues within SLA using debugging tools such as DevTools and Lighthouse.",
-      "Engaged in code reviews and completed assigned development tasks within sprint deadlines.",
-      "Worked with backend developers to integrate applications with RESTful APIs and third-party APIs for seamless data exchange.",
-    ],
-    technologies: [
-      "TypeScript",
-      "JavaScript",
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Redux Toolkit",
-    ],
-  },
-  {
-    id: 3,
-    title: "Frontend Developer (Freelance)",
     company: "Karegivv",
-    period: "MAR 2023 - DEC 2023",
+    period: "MAR 2024 - DEC 2024",
     logo: "/images/dev.png",
     responsibilities: [
       "Designed, developed, and maintained scalable, reusable, and high-quality frontend applications.",
@@ -169,10 +144,10 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    id: 4,
+    id: 3,
     title: "Frontend Developer Intern (Contract)",
     company: "Lupleg LLC",
-    period: "NOV 2022 - FEB 2023",
+    period: "JAN 2024 - MAR 2024",
     logo: "/images/dev.png",
     responsibilities: [
       "Wrote clean, scalable, and maintainable React, ES6+ JavaScript and TypeScript code following best practices.",
