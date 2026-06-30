@@ -53,7 +53,7 @@ export default function Hero() {
               <span className="text-blue-500 font-semibold">
                 Software Engineer.
               </span>{" "}
-              Based in Nairobi, Kenya.
+              Based in Nyali, Mombasa.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-4">
               I turn ideas into fast, scalable mobile and web apps that just
