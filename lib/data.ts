@@ -12,7 +12,6 @@ import {
   SiMongodb,
   SiPostgresql,
   SiDocker,
-  SiAmazon,
   SiFlutter,
   SiMysql,
   SiFirebase,
@@ -55,7 +54,6 @@ export const skillCategories: SkillCategory[] = [
   {
     title: "Mobile App Development",
     skills: [
-      { name: "Flutter", icon: SiFlutter, color: "#02569B" },
       { name: "Kotlin", icon: SiKotlin, color: "#7F52FF" },
       { name: "React Native", icon: TbBrandReactNative, color: "#61DAFB" },
     ],
@@ -72,7 +70,6 @@ export const skillCategories: SkillCategory[] = [
     title: "DevOps/VCS",
     skills: [
       { name: "Docker", icon: SiDocker, color: "#2496ED" },
-      { name: "AWS", icon: SiAmazon, color: "#FF9900" },
       { name: "Digital Ocean", icon: SiDigitalocean, color: "#0080FF" },
       { name: "Git", icon: SiGit, color: "#F05032" },
       { name: "GitHub", icon: SiGithub, color: "#FFFFFF" },
@@ -97,7 +94,7 @@ export const experiences: Experience[] = [
     id: 1,
     title: "Frontend Developer (Contract)",
     company: "VisioRad AI",
-    period: "FEB 2025 - MAY 2026",
+    period: "FEB 2025 - MAR 2026",
     logo: "/images/dev.png",
     responsibilities: [
       "Designed, built, and maintained React/TypeScript components using Next.js App Router and serverless functions for edge-rendering pages.",
