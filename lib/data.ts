@@ -1,6 +1,4 @@
 import {
-  SiHtml5,
-  SiCss3,
   SiPython,
   SiReact,
   SiNextdotjs,
@@ -12,24 +10,14 @@ import {
   SiMongodb,
   SiPostgresql,
   SiDocker,
-  SiFlutter,
   SiMysql,
-  SiFirebase,
   SiTypescript,
   SiUbuntu,
   SiKotlin,
-  SiDigitalocean,
+  SiCloudflare,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
-import type { Experience, Project, Service, SkillCategory } from "@/types";
-import {
-  Cloud,
-  Database,
-  Globe,
-  Server,
-  Shield,
-  Smartphone,
-} from "lucide-react";
+import type { Experience, Service, SkillCategory } from "@/types";
 
 export const skillCategories: SkillCategory[] = [
   {
@@ -37,8 +25,6 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
       { name: "React.js", icon: SiReact, color: "#61DAFB" },
-      { name: "HTML", icon: SiHtml5, color: "#E34F26" },
-      { name: "CSS", icon: SiCss3, color: "#1572B6" },
       { name: "Tailwindcss", icon: SiTailwindcss, color: "#CC6699" },
       { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
     ],
@@ -48,7 +34,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
       { name: "Express.js", icon: SiExpress, color: "#FFFFFF" },
-      { name: "Python", icon: SiPython, color: "#FFFFFF" },
+      { name: "Python", icon: SiPython, color: "#61DAFB" },
     ],
   },
   {
@@ -70,7 +56,7 @@ export const skillCategories: SkillCategory[] = [
     title: "DevOps/VCS",
     skills: [
       { name: "Docker", icon: SiDocker, color: "#2496ED" },
-      { name: "Digital Ocean", icon: SiDigitalocean, color: "#0080FF" },
+      { name: "Cloudflare", icon: SiCloudflare, color: "#F38020" },
       { name: "Git", icon: SiGit, color: "#F05032" },
       { name: "GitHub", icon: SiGithub, color: "#FFFFFF" },
       { name: "Ubuntu", icon: SiUbuntu, color: "#E95420" },
@@ -165,48 +151,14 @@ export const experiences: Experience[] = [
   },
 ];
 
-export const projects: Project[] = [
-  {
-    id: 1,
-    title: "Inventory App",
-    description: "A dynamic inventory Application with CRUD functionalities",
-    image: "/images/projects/Invent.png",
-    technologies: ["React", "JavaScript", "CSS", "Python"],
-    github: "https://github.com/HillaryNyakundi/my-inventory",
-    demo: "https://my-inventory-six.vercel.app/",
-  },
-  {
-    id: 2,
-    title: "RwandAIR",
-    description:
-      "A landing page website for Rwanda air travel operations built",
-    image: "/images/projects/Rwanda.png",
-    technologies: ["PostgreSQL", "Express", "React", "Node.js"],
-    github: "https://github.com/HillaryNyakundi/rwandair-holidays",
-    demo: "https://rwandair-holidays.vercel.app/",
-  },
-  {
-    id: 3,
-    title: "Barcadi",
-    description: "Cocktails store UI",
-    image: "/images/projects/Barcardi.png",
-    technologies: ["CSS", "Python", "React", "JavaScript", "HTML"],
-    github: "https://github.com/HillaryNyakundi/bacardi",
-    demo: "https://barcardi.vercel.app/",
-  },
-];
-
 export const services: Service[] = [
   {
     title: "Mobile App Development",
     description:
       "I create captivating mobile apps from concept to deployment for iOS and Android. Using cutting-edge technologies, I ensure seamless performance, intuitive interfaces, and robust functionality that align with your business goals. Enjoy a flawless user experience and outstanding results.",
     icons: [
-      { icon: Smartphone, color: "#FFFFFF" },
-      { icon: SiReact, color: "#61DAFB" },
-      { icon: SiFlutter, color: "#02569B" },
       { icon: TbBrandReactNative, color: "#61DAFB" },
-      { icon: SiFirebase, color: "#FFCA28" },
+      { icon: SiKotlin, color: "#7F52FF" },
     ],
   },
   {
@@ -214,11 +166,8 @@ export const services: Service[] = [
     description:
       "I deliver stunning, user-friendly websites to establish your online presence. From simple sites to complex e-commerce platforms, I provide tailored solutions using the latest frameworks and technologies for a seamless, responsive, and SEO-friendly browsing experience. Enhance your online identity with quality.",
     icons: [
-      { icon: Globe, color: "#FFFFFF" },
       { icon: SiReact, color: "#61DAFB" },
       { icon: SiNodedotjs, color: "#339933" },
-      { icon: SiHtml5, color: "#E34F26" },
-      { icon: SiCss3, color: "#1572B6" },
     ],
   },
   {
@@ -226,11 +175,9 @@ export const services: Service[] = [
     description:
       "I enhance digital applications with robust, scalable backend infrastructures. I develop efficient database structures, APIs, and configure servers for optimal performance, security, and scalability, ensuring your applications handle high traffic and complex data management seamlessly. Rely on strong backend solutions.",
     icons: [
-      { icon: Server, color: "#FFFFFF" },
       { icon: SiNodedotjs, color: "#339933" },
       { icon: SiExpress, color: "#FFFFFF" },
-      { icon: Database, color: "#FFFFFF" },
-      { icon: Cloud, color: "#FFFFFF" },
+      { icon: SiPython, color: "#61DAFB" },
     ],
   },
   {
@@ -238,11 +185,8 @@ export const services: Service[] = [
     description:
       "I manage and optimize your database systems for performance, reliability, and scalability. With expertise in SQL and NoSQL databases, I design schemas, write complex queries, and implement best practices for data integrity and security. Ensure your data is managed effectively and efficiently.",
     icons: [
-      { icon: Database, color: "#FFFFFF" },
       { icon: SiPostgresql, color: "#4169E1" },
       { icon: SiMongodb, color: "#47A248" },
-      { icon: Shield, color: "#FFFFFF" },
-      { icon: Server, color: "#FFFFFF" },
     ],
   },
 ];
