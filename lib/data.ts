@@ -80,7 +80,7 @@ export const experiences: Experience[] = [
     id: 1,
     title: "Frontend Developer (Contract)",
     company: "VisioRad AI",
-    period: "FEB 2025 - MAR 2026",
+    period: "FEB 2025 - JUN 2026",
     logo: "/images/dev.png",
     responsibilities: [
       "Designed, built, and maintained React/TypeScript components using Next.js App Router and serverless functions for edge-rendering pages.",
