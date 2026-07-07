@@ -11,8 +11,8 @@ export default function Hero() {
       id="hero"
       className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 bg-[#1a1a1a]"
     >
-      <div className="w-full max-w-6xl mx-auto py-12 sm:py-16 lg:py-20">
-        <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
+      <div className="w-full max-w-6xl mx-auto py-8 sm:py-16 lg:py-20">
+        <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-8 md:gap-12">
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
