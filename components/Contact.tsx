@@ -8,7 +8,9 @@ export default function Contact() {
     <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 bg-[#1a1a1a]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">Contact Me</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
+            Contact Me
+          </h2>
           <div className="w-16 sm:w-20 h-1 bg-blue-600 mx-auto" />
           <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base">
             Got what you need? Holla at me
