@@ -23,6 +23,7 @@
     "lucide-react": "^0.513.0",
     "next": "16.0.8",
     "nodemailer": "^7.0.3",
+    "radix-ui": "^1.6.2",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "react-hook-form": "^7.57.0",
