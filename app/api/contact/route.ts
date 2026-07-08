@@ -2,6 +2,18 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { contactFormSchema } from '@/lib/validation';
 
+// Escape HTML so user input can't inject markup/scripts into the email body.
+const escapeHtml = (value: string) =>
+  value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+// Strip CR/LF to prevent email header injection via the subject.
+const sanitizeHeader = (value: string) => value.replace(/[\r\n]+/g, ' ').trim();
+
 // Create reusable transporter
 const createTransporter = () => {
   return nodemailer.createTransport({
@@ -27,7 +39,20 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { name, email, subject, message } = validationResult.data;
+    // Honeypot: if the hidden field is filled, it's a bot. Pretend success.
+    if (validationResult.data.company) {
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
+
+    // Raw (validated) address for the "to" field; header-safe subject line.
+    const recipientEmail = validationResult.data.email;
+    const subjectHeader = sanitizeHeader(validationResult.data.subject);
+
+    // Escape all user-provided values before embedding them in HTML.
+    const name = escapeHtml(validationResult.data.name);
+    const email = escapeHtml(validationResult.data.email);
+    const subject = escapeHtml(validationResult.data.subject);
+    const message = escapeHtml(validationResult.data.message);
 
     // Check environment variables
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
@@ -56,7 +81,8 @@ export async function POST(req: NextRequest) {
     const mailToOwner = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
-      subject: `Portfolio Contact: ${subject}`,
+      replyTo: recipientEmail,
+      subject: `Portfolio Contact: ${subjectHeader}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -107,7 +133,7 @@ export async function POST(req: NextRequest) {
     // Confirmation email to sender
     const mailToSender = {
       from: process.env.EMAIL_USER,
-      to: email,
+      to: recipientEmail,
       subject: 'Thank you for contacting me!',
       html: `
         <!DOCTYPE html>

@@ -68,7 +68,6 @@ export default function Workflow() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
             My Workflow
           </h2>
-          <div className="w-16 sm:w-20 h-1 bg-blue-600 mx-auto" />
           <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base max-w-2xl mx-auto">
             A simple, repeatable process for turning an idea into something real and keeping it working once it&apos;s live.
           </p>

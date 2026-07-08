@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { siteConfig } from '@/lib/site';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -51,11 +52,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={`${inter.className} bg-[#1a1a1a] text-white`}>
         <Navbar />
         <main className="relative">{children}</main>
         <Footer />
+        <Toaster />
         <Analytics />
       </body>
     </html>
