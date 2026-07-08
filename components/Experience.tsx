@@ -13,7 +13,6 @@ export default function Experience() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white">
             Experience
           </h2>
-          <div className="w-16 sm:w-20 h-1 bg-blue-600 mx-auto" />
           <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base">
             My working experience
           </p>

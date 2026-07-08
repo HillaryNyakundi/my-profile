@@ -3,16 +3,19 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { motion } from 'framer-motion';
 import { Send, Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
 import { contactFormSchema, type ContactFormData } from '@/lib/validation';
+
+// Always-visible border + darker fill so fields stay distinguished, not just on focus.
+const fieldClass = 'border-gray-700 bg-[#2a2a2a] placeholder:text-gray-500';
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error' | null;
-    message: string;
-  }>({ type: null, message: '' });
 
   const {
     register,
@@ -25,14 +28,11 @@ export default function ContactForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: '' });
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
 
@@ -42,18 +42,16 @@ export default function ContactForm() {
         throw new Error(result.error || 'Failed to send message');
       }
 
-      setSubmitStatus({
-        type: 'success',
-        message: "Message sent successfully! I'll get back to you soon.",
+      toast.success('Message sent!', {
+        description: "Thanks for reaching out. I'll get back to you within a day.",
       });
       reset();
     } catch (error) {
-      setSubmitStatus({
-        type: 'error',
-        message:
+      toast.error('Something went wrong!', {
+        description:
           error instanceof Error
             ? error.message
-            : 'Something went wrong. Please try again.',
+            : 'Please try again in a moment.',
       });
     } finally {
       setIsSubmitting(false);
@@ -61,87 +59,98 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div className="grid md:grid-cols-2 gap-4">
-        <div>
-          <input
-            {...register('name')}
-            type="text"
-            placeholder="Name"
-            className="w-full bg-[#2a2a2a] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
-          />
-          {errors.name && (
-            <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
-          )}
-        </div>
-        <div>
-          <input
-            {...register('email')}
-            type="email"
-            placeholder="Email"
-            className="w-full bg-[#2a2a2a] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
-          />
-          {errors.email && (
-            <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
-          )}
-        </div>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+      {/* Honeypot — hidden from users, catches bots */}
+      <div className="absolute left-[-9999px]" aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input
+          id="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          {...register('company')}
+        />
       </div>
 
-      <div>
-        <input
-          {...register('subject')}
+      <div className="space-y-2">
+        <Label htmlFor="name">Name</Label>
+        <Input
+          id="name"
           type="text"
-          placeholder="Subject"
-          className="w-full bg-[#2a2a2a] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
+          placeholder="Your name"
+          autoComplete="name"
+          aria-invalid={!!errors.name}
+          className={fieldClass}
+          {...register('name')}
+        />
+        {errors.name && (
+          <p className="text-sm text-red-400">{errors.name.message}</p>
+        )}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="email">Email</Label>
+        <Input
+          id="email"
+          type="email"
+          placeholder="you@example.com"
+          autoComplete="email"
+          aria-invalid={!!errors.email}
+          className={fieldClass}
+          {...register('email')}
+        />
+        {errors.email && (
+          <p className="text-sm text-red-400">{errors.email.message}</p>
+        )}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="subject">Subject</Label>
+        <Input
+          id="subject"
+          type="text"
+          placeholder="What's this about?"
+          aria-invalid={!!errors.subject}
+          className={fieldClass}
+          {...register('subject')}
         />
         {errors.subject && (
-          <p className="mt-1 text-sm text-red-400">{errors.subject.message}</p>
+          <p className="text-sm text-red-400">{errors.subject.message}</p>
         )}
       </div>
 
-      <div>
-        <textarea
+      <div className="space-y-2">
+        <Label htmlFor="message">Message</Label>
+        <Textarea
+          id="message"
+          rows={10}
+          placeholder="Tell me about your project…"
+          aria-invalid={!!errors.message}
+          className={`resize-none ${fieldClass}`}
           {...register('message')}
-          placeholder="Message"
-          rows={5}
-          className="w-full bg-[#2a2a2a] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors resize-none"
         />
         {errors.message && (
-          <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
+          <p className="text-sm text-red-400">{errors.message.message}</p>
         )}
       </div>
 
-      <motion.button
+      <Button
         type="submit"
         disabled={isSubmitting}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        className="w-full bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 py-3 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="w-full bg-blue-600 text-white hover:bg-blue-700"
       >
         {isSubmitting ? (
           <>
-            <Loader2 size={16} className="animate-spin" />
-            Sending...
+            <Loader2 className="h-4 w-4 animate-spin" />
+            Sending…
           </>
         ) : (
           <>
-            Submit
-            <Send size={16} />
+            Send message
+            <Send className="h-4 w-4" />
           </>
         )}
-      </motion.button>
-
-      {submitStatus.type && (
-        <motion.p
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className={`text-sm text-center ${
-            submitStatus.type === 'success' ? 'text-green-400' : 'text-red-400'
-          }`}
-        >
-          {submitStatus.message}
-        </motion.p>
-      )}
+      </Button>
     </form>
   );
 }
