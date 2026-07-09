@@ -36,16 +36,10 @@ function ProjectImage({ project }: { project: WorkProject }) {
           onError={() => setErrored(true)}
           initial={false}
           animate={{
-            objectPosition:
-              hovered && !reduceMotion ? "50% 100%" : "50% 0%",
-            scale: hovered && !reduceMotion ? 1.04 : 1,
+            scale: hovered && !reduceMotion ? 1.08 : 1,
           }}
           transition={{
-            objectPosition: {
-              duration: hovered ? 6 : 1.2,
-              ease: hovered ? "linear" : "easeOut",
-            },
-            scale: { duration: 0.7, ease: "easeOut" },
+            scale: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
           }}
         />
       ) : (
