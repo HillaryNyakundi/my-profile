@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { siteConfig } from '@/lib/site';
+import { structuredData } from '@/lib/structured-data';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Toaster } from '@/components/ui/sonner';
@@ -22,9 +23,11 @@ export const metadata: Metadata = {
   keywords: [
     'Hillary Nyakundi',
     'Software Engineer',
+    'Website Developer',
     'Frontend Developer',
     'React',
     'Next.js',
+    'React Native',
     'Mobile Developer',
     'Kenya',
   ],
@@ -48,11 +51,20 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
+  verification: {
+    google: 'FED5V_tOjDRGOIz0pJfaB5Xn4JhM3t9VRfPj-psr5XA',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body className={`${inter.className} bg-[#1a1a1a] text-white`}>
         <Navbar />
         <main className="relative">{children}</main>

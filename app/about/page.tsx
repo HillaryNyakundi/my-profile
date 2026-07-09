@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'About',
   description:
     'Hillary Nyakundi — skills, tech stack, and the services I offer across web and mobile development.',
+  alternates: { canonical: '/about' },
 };
 
 export default function AboutPage() {
