@@ -35,6 +35,13 @@ Allow: /
 # - Focus on responsive, accessible, mobile-first, SEO-friendly interfaces
 # - Comfortable across the full stack: UI, APIs, CI/CD (Docker), and cloud deploys
 
+# ── SELECTED WORK ────────────────────────────
+# - VisioRad AI (visioradai.com) — One platform for every step in the diagnostic
+#   journey. Built with Next.js, TypeScript, Framer Motion, Tanstack.
+# - Karegivv — Care-coordination platform connecting families and caregivers.
+#   Built with Next.js, TypeScript, Shadcn UI, Azure.
+# See more at: https://hillarynyakundi.vercel.app/work
+
 # ── LINKS ────────────────────────────────────
 # GitHub:   https://www.github.com/HillaryNyakundi
 # LinkedIn: https://www.linkedin.com/in/hillarynyakundi

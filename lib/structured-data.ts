@@ -2,6 +2,7 @@
 // Rendered as <script type="application/ld+json"> in the root layout.
 import Strings from '@/constants/strings';
 import { siteConfig } from '@/lib/site';
+import { projects } from '@/lib/data';
 
 // Person schema — the primary entity for a personal portfolio.
 const personSchema = {
@@ -42,8 +43,26 @@ const websiteSchema = {
   inLanguage: 'en',
 };
 
+// CreativeWork schema — one node per portfolio project, authored by the person.
+// Helps search engines and AI crawlers understand the work as distinct entities.
+const projectSchemas = projects
+  .filter((project) => project.title.trim() !== '')
+  .map((project) => ({
+    '@type': 'CreativeWork',
+    '@id': `${siteConfig.url}/work#project-${project.id}`,
+    name: project.title,
+    description: project.tagline,
+    abstract: project.problem,
+    author: { '@id': `${siteConfig.url}/#person` },
+    keywords: project.technologies.join(', '),
+    ...(project.url ? { url: project.url } : {}),
+    ...(project.image
+      ? { image: `${siteConfig.url}${project.image}` }
+      : {}),
+  }));
+
 // Combined graph served on every page.
 export const structuredData = {
   '@context': 'https://schema.org',
-  '@graph': [personSchema, websiteSchema],
+  '@graph': [personSchema, websiteSchema, ...projectSchemas],
 };

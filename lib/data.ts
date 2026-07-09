@@ -17,7 +17,12 @@ import {
   SiCloudflare,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
-import type { Experience, Service, SkillCategory } from "@/types";
+import type {
+  Experience,
+  Service,
+  SkillCategory,
+  WorkProject,
+} from "@/types";
 
 export const skillCategories: SkillCategory[] = [
   {
@@ -148,6 +153,33 @@ export const experiences: Experience[] = [
       "Tailwind CSS",
       "Shadcn UI",
     ],
+  },
+];
+
+export const projects: WorkProject[] = [
+  {
+    id: 1,
+    label: "Startup Project",
+    title: "VisioRad AI",
+    tagline: "One Platform for Every Step in the Diagnostic Journey.",
+    problem:
+      "Healthcare facilities across Africa share the same systemic barriers regardless of size, staffing, or specialisation.Diagnostic workflows are broken and patients pay the price.",
+    technologies: ["Next.js", "TypeScript", "Framer Motion", "Tanstack"],
+    image: "/work/visioradai.png",
+    url: "https://visioradai.com",
+    urlLabel: "visioradai.com",
+  },
+  {
+    id: 2,
+    label: "Client Work",
+    title: "Karegivv",
+    tagline: "Care-coordination platform connecting families and caregivers.",
+    problem:
+      "Families booked caregivers over phone and spreadsheets, with no vetting, scheduling, or payment trail.",
+    technologies: ["Next.js", "TypeScript", "Shadcn UI", "Azure"],
+    image: "/work/karegivv.png",
+    url: undefined,
+    urlLabel: undefined,
   },
 ];
 
