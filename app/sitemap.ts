@@ -5,7 +5,7 @@ import { siteConfig } from '@/lib/site';
 // search engines to index.
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const routes = ['', '/about', '/experience', '/workflow', '/contact'];
+  const routes = ['', '/about', '/work', '/experience', '/workflow', '/contact'];
 
   return routes.map((path) => ({
     url: `${siteConfig.url}${path}`,

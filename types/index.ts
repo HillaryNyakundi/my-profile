@@ -20,6 +20,23 @@ export interface Project {
   demo?: string | null;
 }
 
+export interface WorkProject {
+  id: number;
+  /** Small uppercase eyebrow, e.g. "STARTUP PROJECT" */
+  label: string;
+  title: string;
+  /** Short one-line summary shown under the title */
+  tagline: string;
+  /** Context / the problem this project solved */
+  problem: string;
+  technologies: string[];
+  image?: string;
+  /** Live site URL */
+  url?: string;
+  /** Display text for the link, e.g. "eventparlour.com" */
+  urlLabel?: string;
+}
+
 export interface BlogPost {
   id: string;
   title: string;

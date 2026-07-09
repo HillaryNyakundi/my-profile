@@ -6,6 +6,7 @@ import MobileNav from './MobileNav';
 
 const links = [
   { href: '/about', label: 'About' },
+  { href: '/work', label: 'Work' },
   { href: '/experience', label: 'Experience' },
   { href: '/workflow', label: 'Workflow' },
   { href: '/contact', label: 'Contact' },
@@ -26,7 +27,8 @@ export default function Navbar() {
 
         <ul className="hidden items-center gap-6 text-sm sm:flex">
           {links.map((link) => {
-            const isActive = pathname.startsWith(link.href);
+            const isActive =
+              pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
               <li key={link.href}>
                 <Link
