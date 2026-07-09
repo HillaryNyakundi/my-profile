@@ -56,7 +56,7 @@ export default function Contact() {
               </a>
               <div className="flex items-center gap-2 sm:gap-3 text-gray-300 text-sm sm:text-base">
                 <MapPin size={18} className="text-blue-500" />
-                <span>Mombasa County, Kenya</span>
+                <span>Nairobi, Kenya</span>
               </div>
             </div>
           </div>
