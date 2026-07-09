@@ -38,9 +38,15 @@ and these pieces help it along:
 | File | Generates | Purpose |
 | --- | --- | --- |
 | [`lib/site.ts`](../lib/site.ts) | — | Single source of truth for site URL, name, description (used by all of the below). |
-| [`app/layout.tsx`](../app/layout.tsx) | `<head>` meta | `metadataBase`, title/description, canonical URL, Open Graph + Twitter cards, and explicit `robots: { index: true, follow: true }`. |
+| [`app/layout.tsx`](../app/layout.tsx) | `<head>` meta | `metadataBase`, title/description, keywords, canonical URL, Open Graph + Twitter cards, `robots: { index: true, follow: true }`, Google Search Console `verification` token, and the JSON-LD `<script>`. |
+| `app/*/page.tsx` (per route) | `<head>` meta | Each page's own `title`, `description`, and self-referencing `canonical`. |
 | [`app/sitemap.ts`](../app/sitemap.ts) | `/sitemap.xml` | Lists indexable routes. |
 | [`app/robots.ts`](../app/robots.ts) | `/robots.txt` | Allows all crawlers, disallows `/api/`, links the sitemap. |
+| [`lib/structured-data.ts`](../lib/structured-data.ts) | JSON-LD | Person + WebSite schema.org data rendered in every page's `<head>` for rich results. |
+| [`public/llms.txt`](../public/llms.txt) | `/llms.txt` | Facts + policy for AI crawlers (ChatGPT, Gemini, Claude, etc.). |
+
+> **Deliberately skipped** (can add later): Google Analytics 4 (Vercel Analytics is used instead)
+> and a Content-Security-Policy header. Neither is required for indexing.
 
 **Production URL:** `https://hillarynyakundi.vercel.app`
 (override per-environment with the `NEXT_PUBLIC_SITE_URL` env var).
@@ -66,16 +72,10 @@ On production these are:
 2. Open **[Google Search Console](https://search.google.com/search-console)** and
    add your site as a property (URL-prefix property using the full
    `https://hillarynyakundi.vercel.app` URL is simplest).
-3. **Verify ownership.** Easiest options:
-   - **HTML meta tag** — Google gives you a `<meta name="google-site-verification" ...>`
-     tag. Add its content value to `verification` in `app/layout.tsx`:
-     ```ts
-     export const metadata: Metadata = {
-       // ...
-       verification: { google: 'PASTE_TOKEN_HERE' },
-     };
-     ```
-   - or **DNS TXT record** on your domain.
+3. **Verify ownership.** ✅ Done — verified via the HTML meta-tag method. The token lives in
+   `verification: { google: '...' }` in [`app/layout.tsx`](../app/layout.tsx). **Do not remove it**
+   — Search Console re-checks periodically and will un-verify the property if the tag disappears.
+   (If re-verifying on a new domain, DNS TXT on a **Domain property** is the most robust option.)
 4. **Submit the sitemap:** in Search Console → *Sitemaps* → enter `sitemap.xml`.
 5. (Optional) **Request indexing:** *URL Inspection* → paste the homepage URL →
    *Request indexing* to nudge Google.
@@ -86,8 +86,13 @@ On production these are:
 
 ## Keeping it healthy
 
+> For the full "I changed X → do Y" workflow (adding pages, editing content, renaming,
+> moving to a custom domain, and periodic Search Console checks), see
+> [`docs/seo-maintenance.md`](./seo-maintenance.md).
+
 - **Add new routes to the sitemap.** When you add a page (e.g. `/projects`),
-  add its URL to `app/sitemap.ts`.
+  add its URL to `app/sitemap.ts` **and** give the page its own `title`, `description`,
+  and `alternates: { canonical: '/projects' }`.
 - **Never ship `noindex` to production** unless you intend to hide the site.
   A "Coming soon" placeholder with `noindex` will keep you out of Google.
 - **Open Graph image:** currently uses `public/Hillary.jpeg`. For best link
