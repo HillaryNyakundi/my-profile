@@ -83,10 +83,10 @@ export const skills = skillCategories.flatMap((category) => category.skills);
 export const experiences: Experience[] = [
   {
     id: 1,
-    title: "Frontend Developer (Contract)",
+    title: "Frontend Developer (Freelance)",
     company: "VisioRad AI",
     period: "FEB 2025 - JUN 2026",
-    logo: "/images/dev.png",
+    location: "Accra, Ghana",
     responsibilities: [
       "Designed, built, and maintained React/TypeScript components using Next.js App Router and serverless functions for edge-rendering pages.",
       "Crafted polished UIs with TailwindCSS and Shadcn UI, ensuring responsive design and accessibility compliance.",
@@ -111,7 +111,7 @@ export const experiences: Experience[] = [
     title: "Frontend Developer (Freelance)",
     company: "Karegivv",
     period: "MAR 2024 - DEC 2024",
-    logo: "/images/dev.png",
+    location: "Nairobi, Kenya",
     responsibilities: [
       "Designed, developed, and maintained scalable, reusable, and high-quality frontend applications.",
       "Ensured application reliability, security, and performance across different platforms and devices.",
@@ -133,10 +133,10 @@ export const experiences: Experience[] = [
   },
   {
     id: 3,
-    title: "Frontend Developer Intern (Contract)",
+    title: "Frontend Developer (Internship)",
     company: "Lupleg LLC",
     period: "JAN 2024 - MAR 2024",
-    logo: "/images/dev.png",
+    location: "Lusaka, Zambia",
     responsibilities: [
       "Wrote clean, scalable, and maintainable React, ES6+ JavaScript and TypeScript code following best practices.",
       "Worked closely with backend developers to ensure seamless communication between frontend and backend systems.",
@@ -164,7 +164,7 @@ export const projects: WorkProject[] = [
     tagline: "One Platform for Every Step in the Diagnostic Journey.",
     problem:
       "Healthcare facilities across Africa share the same systemic barriers regardless of size, staffing, or specialisation.Diagnostic workflows are broken and patients pay the price.",
-    technologies: ["Next.js", "TypeScript", "Framer Motion", "Tanstack"],
+    technologies: ["Next.js", "TypeScript", "Framer Motion", "Tanstack", "FastAPI"],
     image: "/work/visioradai.png",
     url: "https://visioradai.com",
     urlLabel: "visioradai.com",
@@ -177,7 +177,7 @@ export const projects: WorkProject[] = [
       "Trusted market research partner providing data and insights to fuel business growth across Africa. Access brand trackers, online panels, retail audits and consumer data.",
     problem:
       "Whether you're exploring new markets, launching products, or scaling operations, our localized expertise helps you make smarter, faster decisions.",
-    technologies: ["Next.js", "TypeScript", "Shadcn UI", "Django"],
+    technologies: ["Next.js", "TypeScript", "Shadcn UI", "Django", "Tanstack"],
     image: "/work/morinsight.png",
     url: "https://morinsight.co.ke",
     urlLabel: "morinsight.co.ke",
