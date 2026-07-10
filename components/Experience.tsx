@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { experiences } from "@/lib/data";
-import { Download } from "lucide-react";
+import { Download, MapPin } from "lucide-react";
 import Link from "next/link";
 
 export default function Experience() {
@@ -10,8 +10,8 @@ export default function Experience() {
     <section id="experience" className="py-20 px-4 bg-[#1a1a1a]">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white">
-            Experience
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-white">
+            Companies I have worked at
           </h2>
           <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base">
             My working experience
@@ -32,9 +32,15 @@ export default function Experience() {
                       </span>
                     </h3>
                   </div>
-                  <p className="text-sm text-gray-400 whitespace-nowrap">
-                    {item.period}
-                  </p>
+                  <div className="text-sm text-gray-400 sm:text-right">
+                    {item.location && (
+                      <p className="flex items-center gap-1 sm:justify-end">
+                        <MapPin className="w-3.5 h-3.5 text-blue-500 flex-shrink-0" />
+                        {item.location}
+                      </p>
+                    )}
+                    <p className="whitespace-nowrap mt-0.5">{item.period}</p>
+                  </div>
                 </div>
 
                 {/* Responsibilities */}

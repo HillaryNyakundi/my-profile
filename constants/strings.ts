@@ -15,6 +15,10 @@ class Strings {
   static xLink = "https://x.com/nyakundi_66";
   static xUsername = "nyakundi_66";
 
+  static instagram = "Instagram";
+  static instagramLink = "https://www.instagram.com/hillary.nyakundi";
+  static instagramUsername = "hillarynyakundi";
+
   static whatsapp = "WhatsApp";
   static whatsappLink = "https://wa.me/254741467228";
   static whatsappNumber = "254741467228";

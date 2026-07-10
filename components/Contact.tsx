@@ -1,7 +1,7 @@
 'use client';
 
-import { Mail, MapPin } from 'lucide-react';
-import { FaXTwitter, FaWhatsapp } from 'react-icons/fa6';
+import { Mail } from 'lucide-react';
+import { FaXTwitter, FaWhatsapp, FaInstagram } from 'react-icons/fa6';
 import ContactForm from '@/components/ContactForm';
 import Strings from '@/constants/strings';
 
@@ -26,11 +26,11 @@ export default function Contact() {
             <div className="space-y-4 sm:space-y-6">
               <a
                 href={Strings.primaryEmailLink}
-                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-white transition-colors group text-sm sm:text-base"
+                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-blue-500 transition-colors group text-sm sm:text-base"
               >
                 <Mail
                   size={18}
-                  className="text-blue-500 group-hover:scale-110 transition-transform"
+                  className="group-hover:scale-110 transition-transform text-white"
                 />
                 <span className="break-all">{Strings.primaryEmail}</span>
               </a>
@@ -38,11 +38,11 @@ export default function Contact() {
                 href={Strings.xLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-white transition-colors group text-sm sm:text-base"
+                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-blue-500 transition-colors group text-sm sm:text-base"
               >
                 <FaXTwitter
                   size={18}
-                  className="text-blue-500 group-hover:scale-110 transition-transform"
+                  className="group-hover:scale-110 transition-transform text-white"
                 />
                 <span>{Strings.x}</span>
               </a>
@@ -50,18 +50,27 @@ export default function Contact() {
                 href={Strings.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-white transition-colors group text-sm sm:text-base"
+                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-blue-500 transition-colors group text-sm sm:text-base"
               >
                 <FaWhatsapp
                   size={18}
-                  className="text-blue-500 group-hover:scale-110 transition-transform"
+                  style={{ color: '#25D366' }}
+                  className="group-hover:scale-110 transition-transform"
                 />
                 <span>{Strings.whatsapp}</span>
               </a>
-              <div className="flex items-center gap-2 sm:gap-3 text-gray-300 text-sm sm:text-base">
-                <MapPin size={18} className="text-blue-500" />
-                <span>Nairobi, Kenya</span>
-              </div>
+              <a
+                href={Strings.instagramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-blue-500 transition-colors group text-sm sm:text-base"
+              >
+                <FaInstagram
+                  size={18}
+                  className="group-hover:scale-110 transition-transform text-white"
+                />
+                <span>{Strings.instagram}</span>
+              </a>
             </div>
           </div>
 

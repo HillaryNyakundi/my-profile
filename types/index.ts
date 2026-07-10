@@ -5,7 +5,7 @@ export interface Experience {
   title: string;
   company: string;
   period: string;
-  logo?: string;
+  location?: string;
   responsibilities: string[];
   technologies: string[];
 }
