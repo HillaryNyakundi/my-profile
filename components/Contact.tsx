@@ -1,15 +1,17 @@
 'use client';
 
-import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
+import { FaXTwitter, FaWhatsapp } from 'react-icons/fa6';
 import ContactForm from '@/components/ContactForm';
+import Strings from '@/constants/strings';
 
 export default function Contact() {
   return (
     <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 bg-[#1a1a1a]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
-            Contact Me
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
+            Feel free to shoot your message.
           </h2>
           <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base">
             Got what you need? Tell me about your project.
@@ -19,40 +21,42 @@ export default function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           <div className="px-4 sm:px-6">
             <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">
-              Get in touch
+              My Socials
             </h3>
             <div className="space-y-4 sm:space-y-6">
               <a
-                href="mailto:hillarynyakundi66@gmail.com"
+                href={Strings.primaryEmailLink}
                 className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-white transition-colors group text-sm sm:text-base"
               >
                 <Mail
                   size={18}
                   className="text-blue-500 group-hover:scale-110 transition-transform"
                 />
-                <span className="break-all">hillarynyakundi66@gmail.com</span>
+                <span className="break-all">{Strings.primaryEmail}</span>
               </a>
               <a
-                href="tel:+254741467228"
-                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-white transition-colors group text-sm sm:text-base"
-              >
-                <Phone
-                  size={18}
-                  className="text-blue-500 group-hover:scale-110 transition-transform"
-                />
-                <span>+254 741 467 228</span>
-              </a>
-              <a
-                href="https://wa.me/254741467228"
+                href={Strings.xLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-white transition-colors group text-sm sm:text-base"
               >
-                <MessageCircle
+                <FaXTwitter
                   size={18}
                   className="text-blue-500 group-hover:scale-110 transition-transform"
                 />
-                <span>WhatsApp</span>
+                <span>{Strings.x}</span>
+              </a>
+              <a
+                href={Strings.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-white transition-colors group text-sm sm:text-base"
+              >
+                <FaWhatsapp
+                  size={18}
+                  className="text-blue-500 group-hover:scale-110 transition-transform"
+                />
+                <span>{Strings.whatsapp}</span>
               </a>
               <div className="flex items-center gap-2 sm:gap-3 text-gray-300 text-sm sm:text-base">
                 <MapPin size={18} className="text-blue-500" />

@@ -42,8 +42,15 @@ export default function MobileNav({
         className="w-72 border-gray-800 bg-[#1a1a1a] text-white"
       >
         <SheetHeader>
-          <SheetTitle className="text-left text-white">
-            Hillary Nyakundi
+          <SheetTitle className="text-left">
+            <SheetClose asChild>
+              <Link
+                href="/"
+                className="text-white transition-colors hover:text-blue-500"
+              >
+                Hillary Nyakundi
+              </Link>
+            </SheetClose>
           </SheetTitle>
         </SheetHeader>
 
