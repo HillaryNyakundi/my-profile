@@ -179,8 +179,8 @@ export const projects: WorkProject[] = [
       "Whether you're exploring new markets, launching products, or scaling operations, our localized expertise helps you make smarter, faster decisions.",
     technologies: ["Next.js", "TypeScript", "Shadcn UI", "Django"],
     image: "/work/morinsight.png",
-    url: undefined,
-    urlLabel: undefined,
+    url: "https://morinsight.co.ke",
+    urlLabel: "morinsight.co.ke",
   },
 ];
 
