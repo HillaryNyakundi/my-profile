@@ -49,7 +49,8 @@ export default function MobileNav({
 
         <nav className="mt-2 flex flex-col px-4">
           {links.map((link) => {
-            const isActive = pathname.startsWith(link.href);
+            const isActive =
+              pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
               <SheetClose asChild key={link.href}>
                 <Link
