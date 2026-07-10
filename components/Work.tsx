@@ -6,10 +6,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/data";
-import { cn } from "@/lib/utils";
 import type { WorkProject } from "@/types";
-
-const MotionImage = motion.create(Image);
 
 function ProjectImage({ project }: { project: WorkProject }) {
   const [errored, setErrored] = useState(false);
@@ -27,21 +24,21 @@ function ProjectImage({ project }: { project: WorkProject }) {
       <div className="absolute inset-0 bg-gradient-to-br from-[#2a2a2a] via-[#222] to-[#1a1a1a]" />
 
       {showImage ? (
-        <MotionImage
-          src={project.image as string}
-          alt={`${project.title} preview`}
-          fill
-          sizes="(min-width: 1024px) 55vw, 100vw"
-          className="object-cover"
-          onError={() => setErrored(true)}
+        <motion.div
+          className="absolute inset-0"
           initial={false}
-          animate={{
-            scale: hovered && !reduceMotion ? 1.08 : 1,
-          }}
-          transition={{
-            scale: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-          }}
-        />
+          animate={{ scale: hovered && !reduceMotion ? 1.08 : 1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Image
+            src={project.image as string}
+            alt={`${project.title} preview`}
+            fill
+            sizes="(min-width: 1024px) 55vw, 100vw"
+            className="object-cover"
+            onError={() => setErrored(true)}
+          />
+        </motion.div>
       ) : (
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="font-serif text-4xl text-white/10 sm:text-5xl">
@@ -56,31 +53,22 @@ function ProjectImage({ project }: { project: WorkProject }) {
   );
 }
 
-function ProjectRow({ project, index }: { project: WorkProject; index: number }) {
-  const imageFirst = index % 2 === 0;
-
+function ProjectRow({ project }: { project: WorkProject }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="group grid overflow-hidden rounded-2xl border border-gray-800 bg-[#222] transition-colors hover:border-gray-700 lg:grid-cols-[1.15fr_1fr]"
+      className="group grid overflow-hidden rounded-2xl border border-gray-800 bg-[#222] transition-colors hover:border-gray-700 lg:grid-cols-[1.7fr_1fr]"
     >
-      {/* Image cell */}
-      <div className={cn("relative", imageFirst ? "lg:order-1" : "lg:order-2")}>
+      {/* Image cell — always on the left */}
+      <div className="relative">
         <ProjectImage project={project} />
       </div>
 
       {/* Content cell */}
-      <div
-        className={cn(
-          "flex flex-col justify-between gap-10 p-7 sm:p-10 lg:p-12",
-          imageFirst
-            ? "lg:order-2 lg:border-l lg:border-gray-800"
-            : "lg:order-1 lg:border-r lg:border-gray-800"
-        )}
-      >
+      <div className="flex flex-col justify-between gap-10 p-7 sm:p-10 lg:border-l lg:border-gray-800 lg:p-12">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.22em] text-gray-500">
             {project.label}
@@ -155,8 +143,8 @@ export default function Work() {
         </motion.div>
 
         <div className="space-y-6 sm:space-y-8">
-          {projects.map((project, index) => (
-            <ProjectRow key={project.id} project={project} index={index} />
+          {projects.map((project) => (
+            <ProjectRow key={project.id} project={project} />
           ))}
         </div>
       </div>

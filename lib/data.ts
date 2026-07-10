@@ -172,14 +172,15 @@ export const projects: WorkProject[] = [
   {
     id: 2,
     label: "Client Work",
-    title: "Karegivv",
-    tagline: "Care-coordination platform connecting families and caregivers.",
+    title: "MOR Insight Analytics",
+    tagline:
+      "Trusted market research partner providing data and insights to fuel business growth across Africa. Access brand trackers, online panels, retail audits and consumer data.",
     problem:
-      "Families booked caregivers over phone and spreadsheets, with no vetting, scheduling, or payment trail.",
-    technologies: ["Next.js", "TypeScript", "Shadcn UI", "Azure"],
-    image: "/work/karegivv.png",
-    url: undefined,
-    urlLabel: undefined,
+      "Whether you're exploring new markets, launching products, or scaling operations, our localized expertise helps you make smarter, faster decisions.",
+    technologies: ["Next.js", "TypeScript", "Shadcn UI", "Django"],
+    image: "/work/morinsight.png",
+    url: "https://morinsight.co.ke",
+    urlLabel: "morinsight.co.ke",
   },
 ];
 
