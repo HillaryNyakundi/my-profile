@@ -67,3 +67,19 @@ export interface Service {
   description: string;
   icons: Icon[];
 }
+
+export interface GoogleReview {
+  id: string;
+  author: string;
+  authorUri?: string;
+  rating: number;
+  text: string;
+  relativeTime: string;
+}
+
+export interface GoogleReviewsData {
+  rating: number;
+  total: number;
+  mapsUri?: string;
+  reviews: GoogleReview[];
+}
