@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import MobileNav from './MobileNav';
 
@@ -20,9 +21,17 @@ export default function Navbar() {
       <div className="flex items-center justify-between gap-3 border-b border-gray-800 pb-4 sm:pb-5">
         <Link
           href="/"
-          className="text-sm font-bold text-white transition-colors hover:text-blue-500 sm:text-base whitespace-nowrap"
+          className="shrink-0 transition-opacity hover:opacity-80"
+          aria-label="Home"
         >
-          Hillary Nyakundi
+          <Image
+            src="/avid-tech-logo.png"
+            alt="Avid Tech"
+            width={1084}
+            height={700}
+            priority
+            className="h-10 w-auto sm:h-11"
+          />
         </Link>
 
         <ul className="hidden items-center gap-6 text-sm sm:flex">
