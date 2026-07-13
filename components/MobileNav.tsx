@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu } from 'lucide-react';
 import {
@@ -12,6 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import ThemeToggle from './ThemeToggle';
 
 type NavLink = { href: string; label: string };
 
@@ -31,24 +33,31 @@ export default function MobileNav({
       <SheetTrigger asChild>
         <button
           aria-label="Open menu"
-          className={`inline-flex h-9 w-9 items-center justify-center rounded-md text-gray-300 transition-colors hover:text-white ${className ?? ''}`}
+          className={`inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground ${className ?? ''}`}
         >
-          <Menu className="h-5 w-5" />
+          <Menu className="size-6" />
         </button>
       </SheetTrigger>
 
       <SheetContent
         side="right"
-        className="w-72 border-gray-800 bg-[#1a1a1a] text-white"
+        className="w-72 border-border bg-background text-foreground"
       >
         <SheetHeader>
           <SheetTitle className="text-left">
             <SheetClose asChild>
               <Link
                 href="/"
-                className="text-white transition-colors hover:text-blue-500"
+                className="inline-block transition-opacity hover:opacity-80"
+                aria-label="Home"
               >
-                Hillary Nyakundi
+                <Image
+                  src="/avid-tech-logo.png"
+                  alt="Avid Tech"
+                  width={1084}
+                  height={700}
+                  className="h-9 w-auto"
+                />
               </Link>
             </SheetClose>
           </SheetTitle>
@@ -62,8 +71,8 @@ export default function MobileNav({
               <SheetClose asChild key={link.href}>
                 <Link
                   href={link.href}
-                  className={`border-b border-gray-800 py-4 text-base transition-colors ${
-                    isActive ? 'text-blue-500' : 'text-gray-300 hover:text-white'
+                  className={`border-b border-border py-4 text-base transition-colors ${
+                    isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
                   {link.label}
@@ -73,8 +82,9 @@ export default function MobileNav({
           })}
         </nav>
 
-        <div className="mt-auto px-4 py-5 text-xs text-gray-500">
-          © {year} Hillary Nyakundi
+        <div className="mt-auto flex items-center justify-between px-4 py-5 text-xs text-muted-foreground">
+          <span>© {year} Hillary Nyakundi</span>
+          <ThemeToggle />
         </div>
       </SheetContent>
     </Sheet>

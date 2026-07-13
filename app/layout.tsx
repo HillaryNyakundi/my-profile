@@ -5,6 +5,7 @@ import { siteConfig } from '@/lib/site';
 import { structuredData } from '@/lib/structured-data';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
 
@@ -58,19 +59,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${inter.className} bg-[#1a1a1a] text-white`}>
-        <Navbar />
-        <main className="relative">{children}</main>
-        <Footer />
-        <Toaster />
-        <Analytics />
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <Navbar />
+          <main className="relative">{children}</main>
+          <Footer />
+          <Toaster />
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

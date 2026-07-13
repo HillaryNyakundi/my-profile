@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 bg-[#1a1a1a]"
+      className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 bg-background"
     >
       <div className="w-full max-w-6xl mx-auto py-8 sm:py-16 lg:py-20">
         <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-8 md:gap-12">
@@ -19,7 +19,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="flex-shrink-0"
           >
-            <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-gray-800">
+            <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-muted">
               <Image
                 src="/Hillary.jpeg"
                 alt="Hillary Nyakundi"
@@ -44,24 +44,24 @@ export default function Hero() {
               <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
                 Meet!
               </p>
-              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-500">
+              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-primary">
                 Hillary Nyakundi.
               </span>
             </div>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mt-4 mb-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mt-4 mb-4">
               A{" "}
-              <span className="text-blue-500 font-semibold">
+              <span className="text-primary font-semibold">
                 Software Engineer.
               </span>{" "}
               Based in Nairobi, Kenya.
             </p>
-            <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-4">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-4">
               I turn ideas into fast, scalable mobile and web apps that just
               work.
             </p>
-            <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-6 sm:mb-8">
-              I am available for <span className="text-white">freelancing</span>{" "}
-              or <span className="text-white">full-time</span> job.
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8">
+              I am available for <span className="text-foreground">Independent Contractor</span>{" "}
+              or <span className="text-foreground">full-time</span> job.
             </p>
             <div className="flex flex-row gap-3 sm:gap-4 mb-3 justify-center md:justify-start w-full">
               <div className="flex-1 min-w-0 max-w-[10rem] sm:max-w-none sm:flex-initial">

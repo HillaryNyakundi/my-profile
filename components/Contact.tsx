@@ -7,13 +7,13 @@ import Strings from '@/constants/strings';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 bg-[#1a1a1a]">
+    <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
             Feel free to shoot your message.
           </h2>
-          <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base">
+          <p className="text-muted-foreground mt-3 sm:mt-4 text-sm sm:text-base">
             Got what you need? Tell me about your project.
           </p>
         </div>
@@ -26,11 +26,11 @@ export default function Contact() {
             <div className="space-y-4 sm:space-y-6">
               <a
                 href={Strings.primaryEmailLink}
-                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-blue-500 transition-colors group text-sm sm:text-base"
+                className="flex items-center gap-2 sm:gap-3 text-muted-foreground hover:text-primary transition-colors group text-sm sm:text-base"
               >
                 <Mail
                   size={18}
-                  className="group-hover:scale-110 transition-transform text-white"
+                  className="group-hover:scale-110 transition-transform text-foreground"
                 />
                 <span className="break-all">{Strings.primaryEmail}</span>
               </a>
@@ -38,11 +38,11 @@ export default function Contact() {
                 href={Strings.xLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-blue-500 transition-colors group text-sm sm:text-base"
+                className="flex items-center gap-2 sm:gap-3 text-muted-foreground hover:text-primary transition-colors group text-sm sm:text-base"
               >
                 <FaXTwitter
                   size={18}
-                  className="group-hover:scale-110 transition-transform text-white"
+                  className="group-hover:scale-110 transition-transform text-foreground"
                 />
                 <span>{Strings.x}</span>
               </a>
@@ -50,7 +50,7 @@ export default function Contact() {
                 href={Strings.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-blue-500 transition-colors group text-sm sm:text-base"
+                className="flex items-center gap-2 sm:gap-3 text-muted-foreground hover:text-primary transition-colors group text-sm sm:text-base"
               >
                 <FaWhatsapp
                   size={18}
@@ -63,11 +63,11 @@ export default function Contact() {
                 href={Strings.instagramLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 sm:gap-3 text-gray-300 hover:text-blue-500 transition-colors group text-sm sm:text-base"
+                className="flex items-center gap-2 sm:gap-3 text-muted-foreground hover:text-primary transition-colors group text-sm sm:text-base"
               >
                 <FaInstagram
                   size={18}
-                  className="group-hover:scale-110 transition-transform text-white"
+                  className="group-hover:scale-110 transition-transform text-foreground"
                 />
                 <span>{Strings.instagram}</span>
               </a>

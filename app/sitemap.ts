@@ -5,12 +5,22 @@ import { siteConfig } from '@/lib/site';
 // search engines to index.
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const routes = ['', '/about', '/work', '/experience', '/workflow', '/contact'];
+  const routes: { path: string; priority: number }[] = [
+    { path: '', priority: 1 },
+    { path: '/about', priority: 0.8 },
+    { path: '/work', priority: 0.8 },
+    { path: '/experience', priority: 0.8 },
+    { path: '/workflow', priority: 0.8 },
+    { path: '/contact', priority: 0.8 },
+    // Logo Lab side project + its field guide (secondary content)
+    { path: '/lab', priority: 0.6 },
+    { path: '/lab/guide', priority: 0.6 },
+  ];
 
-  return routes.map((path) => ({
+  return routes.map(({ path, priority }) => ({
     url: `${siteConfig.url}${path}`,
     lastModified: now,
     changeFrequency: 'monthly',
-    priority: path === '' ? 1 : 0.8,
+    priority,
   }));
 }

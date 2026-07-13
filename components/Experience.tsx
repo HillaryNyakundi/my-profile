@@ -7,35 +7,35 @@ import Link from "next/link";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 px-4 bg-[#1a1a1a]">
+    <section id="experience" className="py-20 px-4 bg-background">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-white">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-foreground">
             Companies I have worked at
           </h2>
-          <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base">
+          <p className="text-muted-foreground mt-3 sm:mt-4 text-sm sm:text-base">
             My working experience
           </p>
         </div>
 
         <div className="space-y-6">
           {experiences.map((item) => (
-            <Card key={item.id} className="bg-[#2a2a2a] border-gray-700 w-full">
+            <Card key={item.id} className="bg-card border-border w-full">
               <CardContent className="p-6 sm:p-8">
                 {/* Header Section */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-6">
                   <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl font-bold text-white">
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground">
                       {item.title}{" "}
-                      <span className="text-gray-400 font-normal">
+                      <span className="text-muted-foreground font-normal">
                         @ {item.company}
                       </span>
                     </h3>
                   </div>
-                  <div className="text-sm text-gray-400 sm:text-right">
+                  <div className="text-sm text-muted-foreground sm:text-right">
                     {item.location && (
                       <p className="flex items-center gap-1 sm:justify-end">
-                        <MapPin className="w-3.5 h-3.5 text-blue-500 flex-shrink-0" />
+                        <MapPin className="w-3.5 h-3.5 text-primary flex-shrink-0" />
                         {item.location}
                       </p>
                     )}
@@ -47,10 +47,10 @@ export default function Experience() {
                 <ul className="space-y-3">
                   {item.responsibilities.map((resp, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="text-blue-600 mt-0.5 sm:mt-1 flex-shrink-0">
+                      <span className="text-dusty-blue mt-0.5 sm:mt-1 flex-shrink-0">
                         •
                       </span>
-                      <span className="text-sm sm:text-base text-gray-300 leading-relaxed">
+                      <span className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                         {resp}
                       </span>
                     </li>
@@ -66,9 +66,9 @@ export default function Experience() {
           <Link
             href="/Hillary-Nyakundi-Maranga-Resume.pdf"
             download
-            className="group relative inline-flex items-center gap-2 px-6 py-3 text-white font-medium rounded-lg overflow-hidden border border-blue-600"
+            className="group relative inline-flex items-center gap-2 px-6 py-3 text-white font-medium rounded-lg overflow-hidden border border-dusty-blue"
           >
-            <span className="absolute inset-0 bg-blue-600 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+            <span className="absolute inset-0 bg-dusty-blue translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
             <Download className="w-5 h-5 relative z-10" />
             <span className="relative z-10">Download Resume</span>
           </Link>

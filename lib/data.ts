@@ -83,7 +83,7 @@ export const skills = skillCategories.flatMap((category) => category.skills);
 export const experiences: Experience[] = [
   {
     id: 1,
-    title: "Frontend Developer (Freelance)",
+    title: "Frontend Developer (Contract)",
     company: "VisioRad AI",
     period: "FEB 2025 - JUN 2026",
     location: "Accra, Ghana",
@@ -108,7 +108,7 @@ export const experiences: Experience[] = [
   },
   {
     id: 2,
-    title: "Frontend Developer (Freelance)",
+    title: "Frontend Developer (Contract)",
     company: "Karegivv",
     period: "MAR 2024 - DEC 2024",
     location: "Nairobi, Kenya",
