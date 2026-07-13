@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 import { contactFormSchema, type ContactFormData } from '@/lib/validation';
 
 const inputClass =
-  'w-full bg-[#2a2a2a] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors';
+  'w-full bg-card border border-border rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors';
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -78,7 +78,7 @@ export default function ContactForm() {
             className={inputClass}
           />
           {errors.name && (
-            <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
+            <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>
           )}
         </div>
         <div>
@@ -90,7 +90,7 @@ export default function ContactForm() {
             className={inputClass}
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
+            <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>
           )}
         </div>
       </div>
@@ -103,7 +103,7 @@ export default function ContactForm() {
           className={inputClass}
         />
         {errors.subject && (
-          <p className="mt-1 text-sm text-red-400">{errors.subject.message}</p>
+          <p className="mt-1 text-sm text-destructive">{errors.subject.message}</p>
         )}
       </div>
 
@@ -115,14 +115,14 @@ export default function ContactForm() {
           className={`${inputClass} resize-none`}
         />
         {errors.message && (
-          <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
+          <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>
         )}
       </div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 py-3 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
         {isSubmitting ? (
           <>

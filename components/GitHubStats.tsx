@@ -10,7 +10,7 @@ export default function GitHubStats() {
   return (
     <section
       id="github-stats"
-      className="py-16 sm:py-20 lg:py-24 bg-[#1a1a1a] px-4 sm:px-6 lg:px-8"
+      className="py-16 sm:py-20 lg:py-24 bg-background px-4 sm:px-6 lg:px-8"
     >
       <div className="w-full max-w-6xl mx-auto">
         <motion.div
@@ -21,9 +21,9 @@ export default function GitHubStats() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            GitHub <span className="text-blue-500">Activity</span>
+            GitHub <span className="text-primary">Activity</span>
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-muted-foreground text-lg">
             Check out my contributions and coding statistics
           </p>
         </motion.div>

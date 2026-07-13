@@ -62,13 +62,13 @@ const steps: Step[] = [
 
 export default function Workflow() {
   return (
-    <section id="workflow" className="py-12 sm:py-16 md:py-20 px-4 bg-[#1a1a1a]">
+    <section id="workflow" className="py-12 sm:py-16 md:py-20 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
             My approach that conceives software solutions.
           </h2>
-          <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="text-muted-foreground mt-3 sm:mt-4 text-sm sm:text-base max-w-2xl mx-auto">
             A simple, repeatable process for turning an idea into something real and keeping it working once it&apos;s live.
           </p>
         </div>
@@ -79,24 +79,24 @@ export default function Workflow() {
             return (
               <div
                 key={step.title}
-                className="group rounded-xl border border-gray-800 bg-[#222] p-6 transition-colors hover:border-gray-700"
+                className="group rounded-xl border border-border bg-card p-6 transition-colors hover:border-border"
               >
                 <div className="flex items-center justify-between">
                   <div
-                    className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10 transition-transform group-hover:scale-105"
+                    className="flex h-14 w-14 items-center justify-center rounded-xl bg-foreground/5 ring-1 ring-foreground/10 transition-transform group-hover:scale-105"
                     style={{ color: step.color }}
                   >
                     <Icon className="h-7 w-7" strokeWidth={1.75} />
                   </div>
-                  <span className="text-3xl font-bold tabular-nums text-white/10">
+                  <span className="text-3xl font-bold tabular-nums text-foreground/10">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>
 
-                <h3 className="mt-5 text-lg font-semibold text-white">
+                <h3 className="mt-5 text-lg font-semibold text-foreground">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm text-gray-400 leading-relaxed">
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
               </div>

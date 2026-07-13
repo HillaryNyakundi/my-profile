@@ -16,12 +16,12 @@ function ProjectImage({ project }: { project: WorkProject }) {
 
   return (
     <div
-      className="relative h-full min-h-[340px] w-full overflow-hidden bg-[#1a1a1a] sm:min-h-[440px] lg:min-h-[520px]"
+      className="relative h-full min-h-[340px] w-full overflow-hidden bg-background sm:min-h-[440px] lg:min-h-[520px]"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       {/* Soft base gradient — sits behind the screenshot and shows through if it fails */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#2a2a2a] via-[#222] to-[#1a1a1a]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-card via-card to-background" />
 
       {showImage ? (
         <motion.div
@@ -41,7 +41,7 @@ function ProjectImage({ project }: { project: WorkProject }) {
         </motion.div>
       ) : (
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-serif text-4xl text-white/10 sm:text-5xl">
+          <span className="font-serif text-4xl text-foreground/10 sm:text-5xl">
             {project.title}
           </span>
         </div>
@@ -60,7 +60,7 @@ function ProjectRow({ project }: { project: WorkProject }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="group grid overflow-hidden rounded-2xl border border-gray-800 bg-[#222] transition-colors hover:border-gray-700 lg:grid-cols-[1.7fr_1fr]"
+      className="group grid overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-border lg:grid-cols-[1.7fr_1fr]"
     >
       {/* Image cell — always on the left */}
       <div className="relative">
@@ -68,21 +68,21 @@ function ProjectRow({ project }: { project: WorkProject }) {
       </div>
 
       {/* Content cell */}
-      <div className="flex flex-col justify-between gap-10 p-7 sm:p-10 lg:border-l lg:border-gray-800 lg:p-12">
+      <div className="flex flex-col justify-between gap-10 p-7 sm:p-10 lg:border-l lg:border-border lg:p-12">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.22em] text-gray-500">
+          <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
             {project.label}
           </p>
-          <h3 className="mt-4 font-serif text-3xl text-white sm:text-4xl">
+          <h3 className="mt-4 font-serif text-3xl text-foreground sm:text-4xl">
             {project.title}
           </h3>
-          <p className="mt-4 max-w-md text-base leading-relaxed text-gray-400">
+          <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
             {project.tagline}
           </p>
         </div>
 
         <div>
-          <p className="max-w-md text-sm leading-relaxed text-gray-400">
+          <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
             {project.problem}
           </p>
 
@@ -91,7 +91,7 @@ function ProjectRow({ project }: { project: WorkProject }) {
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-md border border-gray-700 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-gray-400"
+                  className="rounded-md border border-border px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-muted-foreground"
                 >
                   {tech}
                 </span>
@@ -103,7 +103,7 @@ function ProjectRow({ project }: { project: WorkProject }) {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-gray-400 transition-colors hover:text-blue-500"
+                className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-primary"
               >
                 {project.urlLabel ?? "Visit site"}
                 <ArrowUpRight className="h-3.5 w-3.5" />
@@ -120,7 +120,7 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="relative overflow-hidden bg-[#1a1a1a] px-4 py-20 sm:px-6"
+      className="relative overflow-hidden bg-background px-4 py-20 sm:px-6"
     >
       <div className="relative mx-auto max-w-6xl">
         <motion.div
@@ -130,13 +130,13 @@ export default function Work() {
           transition={{ duration: 0.5 }}
           className="mb-12 max-w-2xl sm:mb-16"
         >
-          <p className="text-xs font-medium uppercase tracking-[0.22em] text-gray-500">
+          <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
             Selected Work
           </p>
-          <h2 className="mt-4 font-serif text-3xl text-white sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 font-serif text-3xl text-foreground sm:text-4xl md:text-5xl">
             Projects I&apos;ve designed for clients.
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-gray-400">
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
             A look at products and platforms I&apos;ve designed and built from
             early startups to established companies.
           </p>

@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#1a1a1a] border-t border-gray-800 py-8 px-4">
+    <footer className="bg-background border-t border-border py-8 px-4">
       <div className="max-w-6xl mx-auto text-center">
-        <p className="text-gray-400">
+        <p className="text-muted-foreground">
           &copy; {new Date().getFullYear()} Hillary Nyakundi. All rights reserved.
         </p>
       </div>
