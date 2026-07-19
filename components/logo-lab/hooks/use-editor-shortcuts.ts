@@ -30,7 +30,8 @@ export function useEditorShortcuts(editor: LogoEditorApi) {
       // Undo / redo work regardless of focus.
       if (mod && e.key.toLowerCase() === "z") {
         e.preventDefault();
-        e.shiftKey ? redo() : undo();
+        if (e.shiftKey) redo();
+        else undo();
         return;
       }
       if (mod && e.key.toLowerCase() === "y") {

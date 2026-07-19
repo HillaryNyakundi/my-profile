@@ -1,8 +1,13 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
-import type { El, ElementType } from "./types";
-import { VIEWBOX, createEl, seed, uid } from "./constants";
+import type { CreatableType, El } from "../types";
+import { VIEWBOX, createEl, uid } from "../constants";
+import { seed, type Template } from "../data/templates";
+import type { Palette } from "../data/palettes";
+import type { IconId } from "../data/icons";
+import type { ImportedImage } from "../lib/import-image";
+import type { TraceResult } from "../lib/trace-image";
 import { useHistory } from "./use-history";
 
 /**
@@ -33,14 +38,81 @@ export function useLogoEditor() {
   const update = useCallback(
     (id: string, patch: Partial<El>) =>
       setEls((cur) => cur.map((e) => (e.id === id ? ({ ...e, ...patch } as El) : e))),
-    []
+    [setEls]
   );
 
-  const addEl = useCallback((type: ElementType) => {
+  const addEl = useCallback((type: CreatableType) => {
     const el = createEl(type);
     setEls((cur) => [...cur, el]);
     setSelectedId(el.id);
-  }, []);
+  }, [setEls]);
+
+  const addIcon = useCallback(
+    (icon: IconId) => {
+      const el = createEl("icon", icon);
+      setEls((cur) => [...cur, el]);
+      setSelectedId(el.id);
+    },
+    [setEls]
+  );
+
+  /** Place an already-imported image (see `lib/import-image.ts`). */
+  const addImage = useCallback(
+    (img: ImportedImage) => {
+      const el: El = {
+        id: uid(),
+        type: "image",
+        x: 200,
+        y: 200,
+        rotation: 0,
+        visible: true,
+        // Images ignore `fill`, but BaseEl requires one; `applyPalette` skips them.
+        fill: "#000000",
+        ...img,
+      };
+      setEls((cur) => [...cur, el]);
+      setSelectedId(el.id);
+    },
+    [setEls]
+  );
+
+  /**
+   * Replace an image with traced vector paths.
+   *
+   * The source image is HIDDEN, not deleted: tracing is a settings-driven guess
+   * and the first result is rarely the keeper, so keeping the original makes a
+   * retrace possible and the whole operation non-destructive. Hiding and adding
+   * happen in one `setEls` call so the trace is a single undo step.
+   */
+  const applyTrace = useCallback(
+    (imageId: string, trace: TraceResult) => {
+      setEls((cur) => {
+        const img = cur.find((e) => e.id === imageId);
+        if (!img || img.type !== "image") return cur;
+
+        // Land the paths exactly where the image sat. Both boxes come from the
+        // same source, so their aspects match and one scale factor is enough.
+        const scale = img.w / trace.boxW;
+        const paths: El[] = trace.paths.map((p) => ({
+          id: uid(),
+          type: "path",
+          x: img.x,
+          y: img.y,
+          rotation: img.rotation,
+          visible: true,
+          fill: p.fill,
+          d: p.d,
+          boxW: trace.boxW,
+          boxH: trace.boxH,
+          scale,
+        }));
+
+        return [...cur.map((e) => (e.id === imageId ? { ...e, visible: false } : e)), ...paths];
+      });
+      setSelectedId(null);
+    },
+    [setEls]
+  );
 
   const duplicate = useCallback(
     (id: string) => {
@@ -50,17 +122,17 @@ export function useLogoEditor() {
       setEls((cur) => [...cur, copy]);
       setSelectedId(copy.id);
     },
-    [els]
+    [els, setEls]
   );
 
   const remove = useCallback((id: string) => {
     setEls((cur) => cur.filter((e) => e.id !== id));
     setSelectedId((cur) => (cur === id ? null : cur));
-  }, []);
+  }, [setEls]);
 
   const toggleVisible = useCallback(
     (id: string) => setEls((cur) => cur.map((e) => (e.id === id ? { ...e, visible: !e.visible } : e))),
-    []
+    [setEls]
   );
 
   /** Move an element up (+1) or down (-1) in paint order. */
@@ -74,13 +146,51 @@ export function useLogoEditor() {
         [next[i], next[j]] = [next[j], next[i]];
         return next;
       }),
-    []
+    [setEls]
   );
 
   const reset = useCallback(() => {
     replace(seed());
     setSelectedId(null);
   }, [replace]);
+
+  /** Swap the whole canvas for a starter layout. Wipes history, like reset. */
+  const loadTemplate = useCallback(
+    (t: Template) => {
+      replace(t.els());
+      setBg(t.bg);
+      setTransparent(false);
+      setSelectedId(null);
+    },
+    [replace]
+  );
+
+  /**
+   * Recolor everything at once. Each *distinct* fill on the canvas is mapped to
+   * the next palette color in order, so a two-tone logo keeps its figure/ground
+   * split instead of collapsing into one flat color.
+   */
+  const applyPalette = useCallback(
+    (p: Palette) => {
+      setEls((cur) => {
+        // Images have a placeholder `fill` they never render; counting it would
+        // burn a palette slot and shift every real color by one.
+        const seen: string[] = [];
+        for (const el of cur) {
+          if (el.type === "image") continue;
+          const key = el.fill.toUpperCase();
+          if (!seen.includes(key)) seen.push(key);
+        }
+        const map = new Map(seen.map((f, i) => [f, p.colors[i % p.colors.length]]));
+        return cur.map((el) =>
+          el.type === "image" ? el : ({ ...el, fill: map.get(el.fill.toUpperCase()) ?? el.fill } as El)
+        );
+      });
+      // A transparent canvas is a deliberate choice; don't undo it with a bg.
+      if (!transparent) setBg(p.bg);
+    },
+    [transparent, setEls]
+  );
 
   /* ---- dragging: map screen pixels into viewBox units ---- */
 
@@ -160,11 +270,17 @@ export function useLogoEditor() {
     // element actions
     update,
     addEl,
+    addIcon,
+    addImage,
+    applyTrace,
     duplicate,
     remove,
     toggleVisible,
     reorder,
     reset,
+    // whole-canvas actions
+    loadTemplate,
+    applyPalette,
     // history
     undo,
     redo,

@@ -1,12 +1,12 @@
 "use client";
 
-import { useLogoEditor } from "./use-logo-editor";
-import { useLogoExport } from "./use-logo-export";
-import { useEditorShortcuts } from "./use-editor-shortcuts";
-import { EditorToolbar } from "./editor-toolbar";
-import { LayersPanel } from "./layers-panel";
-import { LogoCanvas } from "./logo-canvas";
-import { PropertiesPanel } from "./properties-panel";
+import { useLogoEditor } from "./hooks/use-logo-editor";
+import { useLogoExport } from "./hooks/use-logo-export";
+import { useEditorShortcuts } from "./hooks/use-editor-shortcuts";
+import { EditorToolbar } from "./panels/editor-toolbar";
+import { LayersPanel } from "./panels/layers-panel";
+import { LogoCanvas } from "./canvas/logo-canvas";
+import { PropertiesPanel } from "./panels/properties-panel";
 
 /**
  * LogoEditor — composition root. Wires the two hooks (state + export) to the
@@ -19,14 +19,11 @@ export function LogoEditor() {
   useEditorShortcuts(editor);
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground max-w-7xl mx-auto w-full">
       <EditorToolbar
+        editor={editor}
         onExportSvg={exportSvg}
         onExportPng={exportPng}
-        onUndo={editor.undo}
-        onRedo={editor.redo}
-        canUndo={editor.canUndo}
-        canRedo={editor.canRedo}
       />
 
       <div className="grid lg:grid-cols-[220px_1fr_280px]">

@@ -1,9 +1,9 @@
 "use client";
 
-import { VIEWBOX } from "./constants";
+import { VIEWBOX } from "../constants";
 import { bbox } from "./geometry";
 import { ElementShape } from "./element-shape";
-import type { LogoEditorApi } from "./use-logo-editor";
+import type { LogoEditorApi } from "../hooks/use-logo-editor";
 
 const CHECKER =
   "repeating-conic-gradient(#e5e5e5 0% 25%, #ffffff 0% 50%) 50% / 20px 20px";

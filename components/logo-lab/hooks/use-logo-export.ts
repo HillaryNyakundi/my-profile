@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, type RefObject } from "react";
-import { VIEWBOX } from "./constants";
+import { VIEWBOX } from "../constants";
 
 function downloadBlob(blob: Blob, name: string) {
   const url = URL.createObjectURL(blob);

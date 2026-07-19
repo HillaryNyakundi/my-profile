@@ -1,29 +1,33 @@
 "use client";
 
+import { useState } from "react";
 import {
   Circle as CircleIcon,
   Square,
   Type as TypeIcon,
-  MousePointer2,
+  Shapes,
   Eye,
   EyeOff,
   RotateCcw,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { ElementType, TextEl } from "./types";
-import type { LogoEditorApi } from "./use-logo-editor";
+import type { CreatableType, TextEl } from "../types";
+import { ICONS } from "../data/icons";
+import type { LogoEditorApi } from "../hooks/use-logo-editor";
+import { IconPicker } from "./icon-picker";
+import { ImageDrop } from "./image-drop";
 
-const ADD_BUTTONS: { type: ElementType; label: string; icon: typeof CircleIcon }[] = [
+const ADD_BUTTONS: { type: CreatableType; label: string; icon: typeof CircleIcon }[] = [
   { type: "circle", label: "Circle", icon: CircleIcon },
   { type: "rect", label: "Rect", icon: Square },
   { type: "text", label: "Text", icon: TypeIcon },
-  { type: "cursor", label: "Cursor", icon: MousePointer2 },
 ];
 
 /** Left rail: add-element buttons + the layer stack (topmost first). */
 export function LayersPanel({ editor }: { editor: LogoEditorApi }) {
-  const { els, selectedId, addEl, select, toggleVisible, reset } = editor;
+  const { els, selectedId, addEl, addIcon, select, toggleVisible, reset } = editor;
+  const [iconsOpen, setIconsOpen] = useState(false);
 
   return (
     <aside className="border-r p-3 space-y-4">
@@ -35,7 +39,25 @@ export function LayersPanel({ editor }: { editor: LogoEditorApi }) {
               <Icon /> {label}
             </Button>
           ))}
+          <Button
+            size="sm"
+            variant={iconsOpen ? "secondary" : "outline"}
+            onClick={() => setIconsOpen((o) => !o)}
+            aria-expanded={iconsOpen}
+          >
+            <Shapes /> Icons
+          </Button>
         </div>
+        {iconsOpen && (
+          <div className="mt-2 rounded-md border p-1.5">
+            <IconPicker onPick={addIcon} />
+          </div>
+        )}
+      </div>
+
+      <div>
+        <p className="mb-2 text-xs font-medium text-muted-foreground">Image</p>
+        <ImageDrop editor={editor} />
       </div>
 
       <div>
@@ -58,9 +80,21 @@ export function LayersPanel({ editor }: { editor: LogoEditorApi }) {
                   : "border-transparent hover:bg-accent"
               )}
             >
-              <span className="inline-block size-3 rounded-sm border shrink-0" style={{ background: el.fill }} />
+              {/* Images preview themselves; everything else shows its fill. */}
+              <span
+                className="inline-block size-3 shrink-0 rounded-sm border bg-cover bg-center"
+                style={
+                  el.type === "image"
+                    ? { backgroundImage: `url(${el.src})` }
+                    : { background: el.fill }
+                }
+              />
               <span className="flex-1 truncate capitalize">
-                {el.type === "text" ? `“${(el as TextEl).text}”` : el.type}
+                {el.type === "text"
+                  ? `“${(el as TextEl).text}”`
+                  : el.type === "icon"
+                    ? ICONS[el.icon].label
+                    : el.type}
               </span>
               <button
                 onClick={(e) => {
