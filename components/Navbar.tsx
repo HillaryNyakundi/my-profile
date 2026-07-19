@@ -19,7 +19,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 sm:pt-8">
+    <header className="mx-auto w-full max-w-7xl px-4 pt-6 sm:px-6 sm:pt-8">
       <div className="flex items-center justify-between gap-3 border-b border-border pb-4 sm:pb-5">
         <Link
           href="/"
