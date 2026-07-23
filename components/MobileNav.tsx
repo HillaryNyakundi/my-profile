@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import Logo from './Logo';
 import { Menu } from 'lucide-react';
 import {
   Sheet,
@@ -51,13 +51,7 @@ export default function MobileNav({
                 className="inline-block transition-opacity hover:opacity-80"
                 aria-label="Home"
               >
-                <Image
-                  src="/avid-tech-logo.png"
-                  alt="Avid Tech"
-                  width={1084}
-                  height={700}
-                  className="h-9 w-auto"
-                />
+                <Logo className="h-9 w-auto" />
               </Link>
             </SheetClose>
           </SheetTitle>

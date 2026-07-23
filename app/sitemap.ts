@@ -12,8 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/experience', priority: 0.8 },
     { path: '/workflow', priority: 0.8 },
     { path: '/contact', priority: 0.8 },
-    // Logo Lab side project (secondary content)
-    { path: '/lab', priority: 0.6 },
   ];
 
   return routes.map(({ path, priority }) => ({

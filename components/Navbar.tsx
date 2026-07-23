@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import Logo from './Logo';
 import MobileNav from './MobileNav';
 import ThemeToggle from './ThemeToggle';
 
@@ -11,7 +11,6 @@ const links = [
   { href: '/work', label: 'Work' },
   { href: '/experience', label: 'Experience' },
   { href: '/workflow', label: 'Workflow' },
-  { href: '/lab', label: 'Lab' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -26,14 +25,7 @@ export default function Navbar() {
           className="shrink-0 transition-opacity hover:opacity-80"
           aria-label="Home"
         >
-          <Image
-            src="/avid-tech-logo.png"
-            alt="Avid Tech"
-            width={1084}
-            height={700}
-            priority
-            className="h-10 w-auto sm:h-11"
-          />
+          <Logo className="h-10 w-auto sm:h-11" />
         </Link>
 
         <div className="flex items-center gap-4">
