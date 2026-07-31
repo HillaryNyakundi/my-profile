@@ -72,6 +72,8 @@ export interface GoogleReview {
   id: string;
   author: string;
   authorUri?: string;
+  /** Reviewer's Google profile photo URL */
+  authorPhoto?: string;
   rating: number;
   text: string;
   relativeTime: string;
