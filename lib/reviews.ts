@@ -12,7 +12,7 @@ interface PlacesApiReview {
   rating?: number;
   text?: { text?: string };
   originalText?: { text?: string };
-  authorAttribution?: { displayName?: string; uri?: string };
+  authorAttribution?: { displayName?: string; uri?: string; photoUri?: string };
   relativePublishTimeDescription?: string;
 }
 
@@ -53,6 +53,7 @@ export async function getGoogleReviews(): Promise<GoogleReviewsData | null> {
         id: r.name ?? `review-${i}`,
         author: r.authorAttribution?.displayName ?? 'Google user',
         authorUri: r.authorAttribution?.uri,
+        authorPhoto: r.authorAttribution?.photoUri,
         rating: r.rating ?? 0,
         text: r.text?.text ?? r.originalText?.text ?? '',
         relativeTime: r.relativePublishTimeDescription ?? '',

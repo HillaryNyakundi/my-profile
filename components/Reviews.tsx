@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Star, BadgeCheck, ArrowUpRight, Quote } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
@@ -78,6 +79,32 @@ function SummaryCard({ data }: { data: GoogleReviewsData }) {
   );
 }
 
+function Avatar({ review }: { review: GoogleReview }) {
+  const [errored, setErrored] = useState(false);
+  const showPhoto = review.authorPhoto && !errored;
+
+  return (
+    <div className="relative shrink-0">
+      {showPhoto ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={review.authorPhoto}
+          alt={review.author}
+          referrerPolicy="no-referrer"
+          loading="lazy"
+          onError={() => setErrored(true)}
+          className="h-11 w-11 rounded-full object-cover"
+        />
+      ) : (
+        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-dusty-blue/25 to-dusty-blue/5 text-sm font-semibold text-dusty-blue">
+          {initials(review.author)}
+        </div>
+      )}
+      <BadgeCheck className="absolute -bottom-0.5 -right-0.5 size-4 fill-dusty-blue text-background" />
+    </div>
+  );
+}
+
 function ReviewCard({ review }: { review: GoogleReview }) {
   return (
     <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-border hover:bg-card">
@@ -92,12 +119,7 @@ function ReviewCard({ review }: { review: GoogleReview }) {
       </p>
 
       <div className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-        <div className="relative shrink-0">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-dusty-blue/25 to-dusty-blue/5 text-sm font-semibold text-dusty-blue">
-            {initials(review.author)}
-          </div>
-          <BadgeCheck className="absolute -bottom-0.5 -right-0.5 size-4 fill-dusty-blue text-background" />
-        </div>
+        <Avatar review={review} />
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm font-semibold text-foreground">
             {review.author}
