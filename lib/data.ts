@@ -183,6 +183,18 @@ export const projects: WorkProject[] = [
     url: "https://morinsight.co.ke",
     urlLabel: "morinsight.co.ke",
   },
+  {
+    id: 3,
+    label: "Startup Project",
+    title: "AutoHelpX",
+    tagline: "Roadside help and auto services, on demand.",
+    problem:
+      "Drivers stuck with a breakdown have no fast, reliable way to reach nearby help. AutoHelpX connects them with trusted mechanics and roadside assistance in minutes.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Cloudflare"],
+    image: "/work/autohelpx.png",
+    url: "https://autohelpx.com",
+    urlLabel: "autohelpx.com",
+  },
 ];
 
 export const services: Service[] = [
