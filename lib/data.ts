@@ -85,7 +85,7 @@ export const experiences: Experience[] = [
     id: 1,
     title: "Frontend Developer (Contract)",
     company: "VisioRad AI",
-    period: "FEB 2025 - JUL 2026",
+    period: "JAN 2025 - JUL 2026",
     location: "Accra, Ghana",
     responsibilities: [
       "Developed and maintained the application using React, Node.js, TypeScript, Tailwind CSS, and Next.js.",
@@ -111,7 +111,7 @@ export const experiences: Experience[] = [
     id: 2,
     title: "Frontend Developer (Contract)",
     company: "MOR Insight Analytics",
-    period: "MAR 2024 - JAN 2025",
+    period: "FEB 2024 - NOV 2024",
     location: "Nairobi, Kenya",
     responsibilities: [
       "Designed, developed, and maintained scalable, reusable, and high-quality frontend applications.",
@@ -136,7 +136,7 @@ export const experiences: Experience[] = [
     id: 3,
     title: "Frontend Developer (Internship)",
     company: "Lupleg LLC",
-    period: "JAN 2024 - MAR 2024",
+    period: "SEP 2023 - DEC 2023",
     location: "Lusaka, Zambia",
     responsibilities: [
       "Wrote clean, scalable, and maintainable React, ES6+ JavaScript and TypeScript code following best practices.",
