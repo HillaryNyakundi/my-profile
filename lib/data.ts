@@ -109,7 +109,7 @@ export const experiences: Experience[] = [
   },
   {
     id: 2,
-    title: "Frontend Developer (Contract)",
+    title: "Fullstack Developer (Contract)",
     company: "MOR Insight Analytics",
     period: "FEB 2024 - NOV 2024",
     location: "Nairobi, Kenya",
