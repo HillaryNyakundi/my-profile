@@ -160,7 +160,7 @@ export const experiences: Experience[] = [
 export const projects: WorkProject[] = [
   {
     id: 1,
-    label: "Startup Project",
+    label: "Client Work",
     title: "VisioRad AI",
     tagline: "One Platform for Every Step in the Diagnostic Journey.",
     problem:
