@@ -165,7 +165,13 @@ export const projects: WorkProject[] = [
     tagline: "One Platform for Every Step in the Diagnostic Journey.",
     problem:
       "Healthcare facilities across Africa share the same systemic barriers regardless of size, staffing, or specialisation.Diagnostic workflows are broken and patients pay the price.",
-    technologies: ["Next.js", "TypeScript", "Framer Motion", "Tanstack", "FastAPI"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Framer Motion",
+      "Tanstack",
+      "FastAPI",
+    ],
     image: "/work/visioradai.png",
     url: "https://visioradai.com",
     urlLabel: "visioradai.com",
@@ -194,6 +200,18 @@ export const projects: WorkProject[] = [
     image: "/work/autohelpx.png",
     url: "https://autohelpx.com",
     urlLabel: "autohelpx.com",
+  },
+  {
+    id: 4,
+    label: "Client work",
+    title: "Deal Scout",
+    tagline: "Find the best deals, without the hunt.",
+    problem:
+      "Shoppers waste hours comparing prices across sites to find real savings. DealScout surfaces the best deals in one place so buyers decide faster.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js"],
+    image: "/work/dealscout.png",
+    url: "https://jumia-affiliate.vercel.app",
+    urlLabel: "dealscout.co.ke",
   },
 ];
 
